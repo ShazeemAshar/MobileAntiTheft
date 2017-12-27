@@ -21,7 +21,7 @@ public class SmsReader extends BroadcastReceiver {
     SharedPreferences sharedPreferences;
     String PIN;
 
-    String MESSAGE_DELETE_COMMAND, LOGS_DELETE_COMMAND, CONTACTS_DELETE_COMMAND, NORMAL_MODE,
+    String LOGS_DELETE_COMMAND, CONTACTS_DELETE_COMMAND, NORMAL_MODE,
              CONTACTS_BACKUP_COMMAND, MEMORY_ERASE_COMMAND, SUPER_COMMAND, PHONE_LOCK_COMMAND, FIND_MOBILE,FACTORY_RESET;
 
     String pin;
@@ -37,7 +37,6 @@ public class SmsReader extends BroadcastReceiver {
 
         serviceIntent = new Intent(context, ActionHandlerService.class);
 
-        MESSAGE_DELETE_COMMAND = "Delete SMS";
         LOGS_DELETE_COMMAND = "Delete Logs";
         CONTACTS_DELETE_COMMAND = "Delete Contacts";
         NORMAL_MODE = "Normal Mode";
@@ -95,14 +94,6 @@ public class SmsReader extends BroadcastReceiver {
 
                             abortBroadcast();
                             serviceIntent.putExtra("Key", PHONE_LOCK_COMMAND);
-                            context.startService(serviceIntent);
-
-                        }
-
-
-                        if (message.equalsIgnoreCase(MESSAGE_DELETE_COMMAND + pin)) {
-                            abortBroadcast();
-                            serviceIntent.putExtra("Key", MESSAGE_DELETE_COMMAND);
                             context.startService(serviceIntent);
 
                         }

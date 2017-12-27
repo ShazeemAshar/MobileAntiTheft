@@ -1,17 +1,20 @@
 package activities;
 
+import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Patterns;
@@ -40,11 +43,11 @@ import static databases.SQLiteHandler.KEY_EC2;
 import static databases.SQLiteHandler.KEY_EC3;
 import static databases.SQLiteHandler.KEY_PHONE;
 import static databases.SQLiteHandler.KEY_PIN;
+import static helpers.Constants.BASE_URL;
 
 public class WebRegistration extends AppCompatActivity {
 
-    EditText Name,Email,Password,ConfirmPassword;
-    String SERVER_URL = "";
+    EditText Name, Email, Password, ConfirmPassword;
     Button signupBtn;
     SQLiteHandler sqLiteHandler;
     SharedPreferences sharedPreferences;
@@ -55,17 +58,23 @@ public class WebRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_registration);
 
-        setTitle("Web Registration");
+        requestPermissions();
 
-        Name = (EditText) findViewById(R.id.fullName);
-        Email = (EditText) findViewById(R.id.email);
-        Password = (EditText) findViewById(R.id.password);
-        ConfirmPassword = (EditText) findViewById(R.id.confirmPassword);
-        signupBtn = (Button) findViewById(R.id.signup);
+        initViews();
+
+    }
+
+    private void initViews() {
+        setTitle("Web Registration");
+        Name = findViewById(R.id.fullName);
+        Email = findViewById(R.id.email);
+        Password = findViewById(R.id.password);
+        ConfirmPassword = findViewById(R.id.confirmPassword);
+        signupBtn = findViewById(R.id.signup);
 
         String gmail;
 
-        try{
+        try {
             Pattern gmailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
             Account[] accounts = AccountManager.get(this).getAccounts();
             for (Account account : accounts) {
@@ -74,21 +83,8 @@ public class WebRegistration extends AppCompatActivity {
                     Email.setText(gmail);
                 }
             }
-        }catch (Exception ignored){
+        } catch (Exception ignored) {
         }
-
-        Cursor c = getApplication().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
-        try{
-            assert c != null;
-            c.moveToFirst();
-            if (c.getString(c.getColumnIndex("display_name"))!=null){
-                Name.setText(c.getString(c.getColumnIndex("display_name")));
-            }
-            c.close();
-        }catch (Exception ignored){
-        }
-
-
 
         sqLiteHandler = new SQLiteHandler(this);
 
@@ -98,18 +94,24 @@ public class WebRegistration extends AppCompatActivity {
                 validateCredentials(v);
             }
         });
-
-
     }
 
-    public void signUp(){
+    private void requestPermissions() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, 1);
+        }
+    }
+
+
+    public void signUp() {
         final ProgressDialog progressDialog = new ProgressDialog(WebRegistration.this);
         progressDialog.setMessage("Signing Up");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
         RequestQueue requestQueue = Volley.newRequestQueue(WebRegistration.this);
-        StringRequest request = new StringRequest(Request.Method.POST, SERVER_URL+"/register.php", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, BASE_URL + "/register.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -147,21 +149,26 @@ public class WebRegistration extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.cancel();
-                Toast.makeText(WebRegistration.this,error.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(WebRegistration.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         }
-        ){
+        ) {
             @Override
             protected Map<String, String> getParams() {
 
                 TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE}, 2);
+                    }
+                }
                 String SimSerialNumber = manager.getSimSerialNumber();
                 String SimNumber = manager.getLine1Number();
                 String IMEI = manager.getDeviceId();
                 String IMSI = manager.getSubscriberId();
                 String Operator = manager.getNetworkOperatorName();
 
-                if (IMSI == null){
+                if (IMSI == null) {
                     IMSI = "No SIM Found";
                     SimSerialNumber = "No SIM Found";
                     SimNumber = "No SIM Found";
@@ -173,85 +180,71 @@ public class WebRegistration extends AppCompatActivity {
                 cursor.moveToFirst();
 
                 Map<String, String> params = new HashMap<>();
-                
-                params.put("Mobile","Android");
-                params.put("Name",Name.getText().toString());
-                params.put("Email",Email.getText().toString());
-                params.put("Password",Password.getText().toString());
-                params.put("PIN",cursor.getString(cursor.getColumnIndex(KEY_PIN)));
-                params.put("Phone",cursor.getString(cursor.getColumnIndex(KEY_PHONE)));
-                params.put("EmergencyContact1",cursor.getString(cursor.getColumnIndex(KEY_EC1)));
-                params.put("EmergencyContact2",cursor.getString(cursor.getColumnIndex(KEY_EC2)));
-                params.put("EmergencyContact3",cursor.getString(cursor.getColumnIndex(KEY_EC3)));
 
-                params.put("IMEI",IMEI);
-                params.put("Manufacturer",Build.MANUFACTURER);
-                params.put("Model",android.os.Build.MODEL);
-                params.put("OS",Build.VERSION_CODES.class.getFields()[android.os.Build.VERSION.SDK_INT].getName());
-                params.put("ApiLevel",String.valueOf(android.os.Build.VERSION.SDK_INT));
-                params.put("Version",Build.VERSION.RELEASE);
-                params.put("SimSerial",SimSerialNumber);
-                params.put("SimNo",SimNumber);
-                params.put("SimOperator",Operator);
-                params.put("IMSI",IMSI);
+                params.put("Mobile", "Android");
+                params.put("Name", Name.getText().toString());
+                params.put("Email", Email.getText().toString());
+                params.put("Password", Password.getText().toString());
+                params.put("PIN", cursor.getString(cursor.getColumnIndex(KEY_PIN)));
+                params.put("Phone", cursor.getString(cursor.getColumnIndex(KEY_PHONE)));
+                params.put("EmergencyContact1", cursor.getString(cursor.getColumnIndex(KEY_EC1)));
+                params.put("EmergencyContact2", cursor.getString(cursor.getColumnIndex(KEY_EC2)));
+                params.put("EmergencyContact3", cursor.getString(cursor.getColumnIndex(KEY_EC3)));
+
+                params.put("IMEI", IMEI);
+                params.put("Manufacturer", Build.MANUFACTURER);
+                params.put("Model", Build.MODEL);
+                params.put("OS", Build.VERSION_CODES.class.getFields()[Build.VERSION.SDK_INT].getName());
+                params.put("ApiLevel", String.valueOf(Build.VERSION.SDK_INT));
+                params.put("Version", Build.VERSION.RELEASE);
+                params.put("SimSerial", SimSerialNumber);
+                params.put("SimNo", SimNumber);
+                params.put("SimOperator", Operator);
+                params.put("IMSI", IMSI);
 
                 return params;
             }
         };
-        request.setRetryPolicy(new DefaultRetryPolicy(10000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        request.setRetryPolicy(new DefaultRetryPolicy(10000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(request);
     }
 
 
-    public void validateCredentials(View view){
-        if (Name.getText().toString().equals("")){
+    public void validateCredentials(View view) {
+        if (Name.getText().toString().equals("")) {
             Name.requestFocus();
-            Name.setError( "Name is required!" );
-        }
-        else if (Name.getText().toString().trim().length()==0){
+            Name.setError("Name is required!");
+        } else if (Name.getText().toString().trim().length() == 0) {
             Name.requestFocus();
-            Name.setError( "Name is required!" );
-        }
-
-        else if (Name.getText().toString().startsWith(" ") || Name.getText().toString().endsWith(" ")){
+            Name.setError("Name is required!");
+        } else if (Name.getText().toString().startsWith(" ") || Name.getText().toString().endsWith(" ")) {
             Name.requestFocus();
-            Name.setError( "Please enter a valid Name!" );
-        }
-
-        else if (Name.getText().toString().length()<3){
+            Name.setError("Please enter a valid Name!");
+        } else if (Name.getText().toString().length() < 3) {
             Name.requestFocus();
-            Name.setError( "Enter your full name!" );
-        }
-        else if (Email.getText().toString().equals("")){
+            Name.setError("Enter your full name!");
+        } else if (Email.getText().toString().equals("")) {
             Email.requestFocus();
-            Email.setError( "Email is required!" );
-        }
-
-        else if (Password.getText().toString().equals("")){
+            Email.setError("Email is required!");
+        } else if (Password.getText().toString().equals("")) {
             Password.requestFocus();
-            Password.setError( "Password is required!" );
-        }
-        else if (Password.getText().toString().length() < 8){
+            Password.setError("Password is required!");
+        } else if (Password.getText().toString().length() < 8) {
             Password.requestFocus();
             Password.setText(null);
-            Password.setError( "Password must be at least 8 characters long" );
-        }
-
-        else if (ConfirmPassword.getText().toString().equals("")){
+            Password.setError("Password must be at least 8 characters long");
+        } else if (ConfirmPassword.getText().toString().equals("")) {
             ConfirmPassword.requestFocus();
             ConfirmPassword.setError("Please Confirm Password");
-        }
-        else if (!Password.getText().toString().equals(ConfirmPassword.getText().toString())){
+        } else if (!Password.getText().toString().equals(ConfirmPassword.getText().toString())) {
             Password.setText(null);
             ConfirmPassword.setText(null);
-            Toast.makeText(WebRegistration.this,"Passwords do not match",Toast.LENGTH_LONG).show();
-        }
-        else if (!isValidEmail(Email.getText().toString())){
+            Toast.makeText(WebRegistration.this, "Passwords do not match", Toast.LENGTH_LONG).show();
+        } else if (!isValidEmail(Email.getText().toString())) {
             Email.requestFocus();
             Email.setError("Invalid Email!");
             Email.setText(null);
-        }
-        else {
+        } else {
             if (!checkInternetConnectivity()) {
                 Toast.makeText(this, "Please check that you are connected to the Internet and try again", Toast.LENGTH_SHORT).show();
             } else {
@@ -264,10 +257,12 @@ public class WebRegistration extends AppCompatActivity {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    private boolean checkInternetConnectivity()
-    {
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+    private boolean checkInternetConnectivity() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = null;
+        if (connectivityManager != null) {
+            networkInfo = connectivityManager.getActiveNetworkInfo();
+        }
 
         return networkInfo != null;
     }

@@ -66,9 +66,9 @@ public class ActivationAdapter extends BaseAdapter{
         View view;
         view = layoutInflater.inflate(R.layout.custom_row_activation,null);
 
-        TextView title1 = (TextView) view.findViewById(R.id.title);
-        TextView description1 = (TextView) view.findViewById(R.id.description);
-        TextView position1 = (TextView) view.findViewById(R.id.position);
+        TextView title1 = view.findViewById(R.id.title);
+        TextView description1 = view.findViewById(R.id.description);
+        TextView position1 = view.findViewById(R.id.position);
 
         title1.setText(title[position]);
         description1.setText(description[position]);

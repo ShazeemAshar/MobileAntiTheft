@@ -1,5 +1,6 @@
 package activities;
 
+import android.Manifest;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
@@ -15,11 +16,14 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.NotificationCompat;
+
 import android.support.v7.widget.SwitchCompat;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -331,6 +335,11 @@ public class HomeActivity extends BaseActivity {
     private void registerIMSI (){
 
         TelephonyManager manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+            }
+        }
         String IMSI = manager.getSubscriberId();
 
         if (IMSI == null){

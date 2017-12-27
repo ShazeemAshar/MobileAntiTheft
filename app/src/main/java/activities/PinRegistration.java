@@ -28,7 +28,11 @@ public class PinRegistration extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin_registration);
 
-        screen = (TextView) findViewById(R.id.screen);
+        initViews();
+    }
+
+    private void initViews() {
+        screen =  findViewById(R.id.screen);
         sqLiteHandler = new SQLiteHandler(this);
 
 
@@ -39,7 +43,6 @@ public class PinRegistration extends AppCompatActivity implements View.OnClickLi
             View v = findViewById(id);
             v.setOnClickListener(this);
         }
-
     }
 
 

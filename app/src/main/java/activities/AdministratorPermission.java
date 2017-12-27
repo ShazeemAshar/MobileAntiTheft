@@ -23,6 +23,11 @@ public class AdministratorPermission extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator_permission);
 
+        initViews();
+
+    }
+
+    private void initViews() {
         setTitle("Activate Admin");
         sessionManager = new SessionManager(this);
 
@@ -36,8 +41,6 @@ public class AdministratorPermission extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     private void getAdministrativePrivileges(){

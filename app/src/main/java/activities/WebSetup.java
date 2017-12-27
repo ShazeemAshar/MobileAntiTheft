@@ -19,8 +19,13 @@ public class WebSetup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_setup);
+
+        initViews();
+    }
+
+    private void initViews() {
         setTitle("Web Setup");
-        setupWeb = (Button)findViewById(R.id.setupWebBtn);
+        setupWeb = findViewById(R.id.setupWebBtn);
 
         setupWeb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +45,5 @@ public class WebSetup extends AppCompatActivity {
 
             }
         });
-
     }
 }

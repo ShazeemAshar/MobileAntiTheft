@@ -7,7 +7,7 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="androiddoctors.mobileantitheft.HomeActivity"
+    tools:context="activities.HomeActivity"
     android:orientation="vertical"
     android:gravity="center">
 

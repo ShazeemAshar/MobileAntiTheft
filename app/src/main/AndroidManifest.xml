@@ -21,7 +21,6 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -96,10 +95,7 @@
             android:name="activities.WebRegistration"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name="activities.AdministratorPermission"
@@ -153,6 +149,10 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Intro">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
         <activity
             android:name="activities.ProfileActivity"

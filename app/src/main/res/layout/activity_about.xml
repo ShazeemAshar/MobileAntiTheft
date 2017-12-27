@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:weightSum="5"
-    tools:context="androiddoctors.mobileantitheft.AboutActivity"
+    tools:context="activities.AboutActivity"
     android:orientation="vertical"
     android:background="@color/colorPrimary">
 

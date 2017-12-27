@@ -17,9 +17,13 @@ public class SmsSetup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms_setup);
 
+       initViews();
+    }
+
+    private void initViews() {
         setTitle("SMS Setup");
 
-        setupBtn = (Button) findViewById(R.id.setupBtn);
+        setupBtn = findViewById(R.id.setupBtn);
 
         setupBtn.setOnClickListener(new View.OnClickListener() {
             @Override

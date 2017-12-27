@@ -25,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
+        mPinLockView = findViewById(R.id.pin_lock_view);
         mPinLockView.setPinLockListener(mPinLockListener);
 
-        mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
+        mIndicatorDots = findViewById(R.id.indicator_dots);
         mPinLockView.attachIndicatorDots(mIndicatorDots);
 
 

@@ -17,7 +17,11 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        TextView textView = (TextView) findViewById(R.id.contactUs);
+        initViews();
+    }
+
+    private void initViews() {
+        TextView textView = findViewById(R.id.contactUs);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,21 +24,27 @@ public class Commands extends BaseActivity {
         View contentView = inflater.inflate(R.layout.activity_commands, null, false);
         drawerLayout.addView(contentView, 0);
 
+        initViews();
+
+
+    }
+
+    private void initViews() {
         setTitle("Commands");
 
-        commandsList = (ListView) findViewById(R.id.commandsList);
+        commandsList = findViewById(R.id.commandsList);
 
-        String[] commands = {"\nDelete Sms#PIN"+"\nThis command will delete all the messages\n",
-                "\nDelete Logs#PIN"+"\nThis command will delete all the messages\n",
-                "\nDelete Contacts#PIN"+"\nThis command will delete all the contacts\n",
-                "\nWipe Memory#PIN"+"\nThis command will delete all the gallery images and videos\n",
-                "\nNormal Mode#PIN"+"\nThis command will switch the phone from Silent to Sound Mode\n",
-                "\nBackup Contacts#PIN"+"\nThis command will upload your contacts to your web account\n",
-                "\nLock Phone#PIN"+"\nThis command will lock the phone\n",
-                "\nFind Mobile#PIN"+"\nThis command will set last active location of your Mobile on your web account\n",
-                "\nSuper User#PIN"+"\nThis is a super user command which causes the mobile to delete all the messages,logs,contacts," +
+        String[] commands = {
+                "\nDelete Logs#PIN" + "\nThis command will delete all the messages\n",
+                "\nDelete Contacts#PIN" + "\nThis command will delete all the contacts\n",
+                "\nWipe Memory#PIN" + "\nThis command will delete all the gallery images and videos\n",
+                "\nNormal Mode#PIN" + "\nThis command will switch the phone from Silent to Sound Mode\n",
+                "\nBackup Contacts#PIN" + "\nThis command will upload your contacts to your web account\n",
+                "\nLock Phone#PIN" + "\nThis command will lock the phone\n",
+                "\nFind Mobile#PIN" + "\nThis command will set last active location of your Mobile on your web account\n",
+                "\nSuper User#PIN" + "\nThis is a super user command which causes the mobile to delete all the messages,logs,contacts," +
                         "memory, and Locks the phone\n",
-                "\nFactory Reset#PIN"+"\nThis command will Factory Reset your Mobile\n"};
+                "\nFactory Reset#PIN" + "\nThis command will Factory Reset your Mobile\n"};
 
         ArrayAdapter adapter = new ArrayAdapter<>(Commands.this, android.R.layout.simple_list_item_1, commands);
 
@@ -48,12 +54,11 @@ public class Commands extends BaseActivity {
     @Override
     public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
+        } else {
             super.onBackPressed();
-            startActivity(new Intent(this,HomeActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
         }
 
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="androiddoctors.mobileantitheft.PrivacyPolicyActivity"
+    tools:context="activities.PrivacyPolicyActivity"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingBottom="10dp"

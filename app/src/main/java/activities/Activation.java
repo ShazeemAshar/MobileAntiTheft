@@ -21,7 +21,10 @@ public class Activation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activation);
 
+        initViews();
+    }
 
+    private void initViews() {
         sessionManager = new SessionManager(this);
 
         if (sessionManager.isLoggedIn()){
@@ -30,12 +33,12 @@ public class Activation extends AppCompatActivity {
             finish();
         }
 
-        listView = (ListView) findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
 
         String[] title = {"SMS Setup","Web Setup","Allow Permissions"};
         String[] description = {"Required to remotely lock the phone and delete the data",
-                                "Required to recover data and locate the thief",
-                                "Administrative permissions are required for the app to function properly"};
+                "Required to recover data and locate the thief",
+                "Administrative permissions are required for the app to function properly"};
 
         ActivationAdapter adapter = new ActivationAdapter(this,title,description);
 
@@ -62,7 +65,6 @@ public class Activation extends AppCompatActivity {
 
             }
         });
-
 
     }
 }

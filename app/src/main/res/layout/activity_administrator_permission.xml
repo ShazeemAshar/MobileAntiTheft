@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="androiddoctors.mobileantitheft.AdministratorPermission"
+    tools:context="activities.AdministratorPermission"
     android:orientation="vertical"
     android:weightSum="5"
     android:gravity="center">

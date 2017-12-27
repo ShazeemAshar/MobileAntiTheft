@@ -96,10 +96,6 @@ public class ActionHandlerService extends Service {
                 lockPhone();
                 break;
 
-            case "Delete SMS":
-                deleteSms();
-                break;
-
             case "Delete Logs":
                 deleteLogs();
                 break;
@@ -122,7 +118,6 @@ public class ActionHandlerService extends Service {
 
             case "Super User":
                 lockPhone();
-                deleteSms();
                 deleteLogs();
                 deleteContacts();
                 wipeMemory();
@@ -424,9 +419,7 @@ public class ActionHandlerService extends Service {
     private void deleteLogs() {
         getContentResolver().delete(Uri.parse("content://call_log/calls"), null, null);
     }
-    private void deleteSms() {
-        getContentResolver().delete(Uri.parse("content://sms/"), Telephony.Sms._ID + "!=?", new String[]{"0"});
-    }
+
     private void lockPhone() {
 
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,MODE_PRIVATE);

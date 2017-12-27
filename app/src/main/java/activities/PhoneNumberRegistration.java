@@ -25,10 +25,16 @@ public class PhoneNumberRegistration extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_phone_number_registration);
         setTitle("Phone No Registration");
 
-        phone = (EditText) findViewById(R.id.phoneText);
-        ec1 = (EditText) findViewById(R.id.ecText1);
-        ec2 = (EditText) findViewById(R.id.ecText2);
-        ec3 = (EditText) findViewById(R.id.ecText3);
+        initViews();
+
+    }
+
+    private void initViews() {
+
+        phone =  findViewById(R.id.phoneText);
+        ec1 =  findViewById(R.id.ecText1);
+        ec2 =  findViewById(R.id.ecText2);
+        ec3 =  findViewById(R.id.ecText3);
 
         int idList[] = {R.id.phoneInsertBtn, R.id.ec1InsertBtn, R.id.ec2InsertBtn, R.id.ec3InsertBtn};
 

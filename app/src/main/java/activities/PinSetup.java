@@ -18,7 +18,11 @@ public class PinSetup extends AppCompatActivity {
         setContentView(R.layout.activity_pin_setup);
         setTitle("PIN Setup");
 
-        registerPin = (Button) findViewById(R.id.registerPin);
+        initViews();
+    }
+
+    private void initViews() {
+        registerPin =  findViewById(R.id.registerPin);
 
         registerPin.setOnClickListener(new View.OnClickListener() {
             @Override

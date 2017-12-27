@@ -28,17 +28,23 @@ public class ProfileActivity extends BaseActivity {
         View contentView = inflater.inflate(R.layout.activity_profile, null, false);
         drawerLayout.addView(contentView, 0);
 
+        initViews();
+
+
+    }
+
+    private void initViews() {
         setTitle("Profile");
 
-        name = (TextView) findViewById(R.id.name);
-        email = (TextView) findViewById(R.id.email);
-        password = (TextView) findViewById(R.id.password);
-        pin = (TextView) findViewById(R.id.pin);
-        phone = (TextView) findViewById(R.id.phone);
-        emergencyContact1 = (TextView) findViewById(R.id.emergencyContact1);
-        emergencyContact2 = (TextView) findViewById(R.id.emergencyContact2);
-        emergencyContact3 = (TextView) findViewById(R.id.emergencyContact3);
-        editIcon = (ImageView) findViewById(R.id.edit);
+        name =  findViewById(R.id.name);
+        email =  findViewById(R.id.email);
+        password =  findViewById(R.id.password);
+        pin =  findViewById(R.id.pin);
+        phone =  findViewById(R.id.phone);
+        emergencyContact1 = findViewById(R.id.emergencyContact1);
+        emergencyContact2 = findViewById(R.id.emergencyContact2);
+        emergencyContact3 = findViewById(R.id.emergencyContact3);
+        editIcon =  findViewById(R.id.edit);
 
 
         SQLiteHandler sqLiteHandler = new SQLiteHandler(ProfileActivity.this);
@@ -83,8 +89,8 @@ public class ProfileActivity extends BaseActivity {
                 builder.show();
             }
         });
-
     }
+
     @Override
     public void onBackPressed() {
 
