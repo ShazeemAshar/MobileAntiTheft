@@ -34,6 +34,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import activities.AboutActivity;
+import activities.Commands;
+import activities.DeviceInfoActivity;
+import activities.HomeActivity;
+import activities.HowToActivity;
+import activities.PrivacyPolicyActivity;
+import activities.ProfileActivity;
+import databases.SQLiteHandler;
+
 import static com.android.volley.Request.Method.POST;
 
 public class BaseActivity extends AppCompatActivity {
@@ -68,11 +77,11 @@ public class BaseActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if (item.getItemId()==R.id.home){
-                    startActivity(new Intent(BaseActivity.this,HomeActivity.class));
+                    startActivity(new Intent(BaseActivity.this, HomeActivity.class));
                     finish();
                 }
                 if (item.getItemId()==R.id.accountInfo){
-                    startActivity(new Intent(BaseActivity.this,ProfileActivity.class));
+                    startActivity(new Intent(BaseActivity.this, ProfileActivity.class));
                     finish();
                 }
                 if (item.getItemId()==R.id.deviceInfo){

@@ -32,21 +32,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name="activities.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" >
 
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name="activities.HomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
 
         </activity>
 
         <receiver
-            android:name=".SmsReader"
+            android:name="receivers.SmsReader"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -54,12 +54,12 @@
         </receiver>
 
         <activity
-            android:name=".Commands"
+            android:name="activities.Commands"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
 
         <receiver
-            android:name=".AdminReceiver"
+            android:name="receivers.AdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
@@ -71,77 +71,80 @@
         </receiver>
 
         <activity
-            android:name=".Activation"
+            android:name="activities.Activation"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".SmsSetup"
+            android:name="activities.SmsSetup"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PinSetup"
+            android:name="activities.PinSetup"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PinRegistration"
+            android:name="activities.PinRegistration"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".WebSetup"
+            android:name="activities.WebSetup"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WebRegistration"
+            android:name="activities.WebRegistration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="activities.AdministratorPermission"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="activities.PhoneNumberRegistration"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
 
         </activity>
         <activity
-            android:name=".AdministratorPermission"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PhoneNumberRegistration"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" >
-
-        </activity>
-        <activity
-            android:name=".DeviceInfoActivity"
+            android:name="activities.DeviceInfoActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
 
-        <service android:name=".CameraService" />
+        <service android:name="services.CameraService" />
 
-        <receiver android:name=".SimStateReceiver">
+        <receiver android:name="receivers.SimStateReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.SIM_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".ActionHandlerService" />
+        <service android:name="services.ActionHandlerService" />
 
-        <receiver android:name=".AppLauncherReceiver">
+        <receiver android:name="receivers.AppLauncherReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".AboutActivity"
+            android:name="activities.AboutActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".HowToActivity"
+            android:name="activities.HowToActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".PrivacyPolicyActivity"
+            android:name="activities.PrivacyPolicyActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity android:name=".BaseActivity" />
@@ -150,13 +153,9 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Intro">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name="activities.ProfileActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
 

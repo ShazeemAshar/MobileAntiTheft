@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
 
+import activities.Activation;
 import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.SlideFragmentBuilder;
+import helpers.SessionManager;
 
 public class IntroActivity extends MaterialIntroActivity {
 
@@ -16,7 +18,7 @@ public class IntroActivity extends MaterialIntroActivity {
 
         if (new SessionManager(this).isIntroWatched()){
             finish();
-            startActivity(new Intent(this,Activation.class));
+            startActivity(new Intent(this, Activation.class));
         }
         
         super.onCreate(savedInstanceState);
