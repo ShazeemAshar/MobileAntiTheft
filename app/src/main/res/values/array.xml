@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="choices">
+        <item>Inform Emergency Contacts</item>
+        <item>Lock Phone</item>
+        <item>Wipe Memory</item>
+        <item>Delete Contacts</item>
+        <item>Delete SMS</item>
+        <item>Delete Logs</item>
+        <item>Upload Contacts</item>
+    </string-array>
+</resources>

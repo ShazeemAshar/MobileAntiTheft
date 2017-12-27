@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="androiddoctors.mobileantitheft.PrivacyPolicyActivity"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="10dp"
+    android:paddingEnd="5dp"
+    android:paddingRight="5dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:text="INFORMATION WE COLLECT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information you provide us directly:\n• Name\n• Email\n• Password
+\n• PIN\n• Phone Number\n• Three Emergency Contacts\nwhen you register Mobile Anti Theft account.
+\n\nInformation we collect indirectly about the device:
+\n• Device IMEI
+\n• Device Manufacturer
+\n• Device Model
+\n• OS Name
+\n• OS Version
+\n• OS API Level
+\n• SIM Serial
+\n• IMSI
+\n• SIM No
+\n• Network Operator\n
+" />
+            <TextView
+                android:textStyle="bold"
+                android:text="HOW WE USE YOUR INFORMATION"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We may use information that we receive to:
+\n• help you efficiently access your information after you sign in
+\n• remember information so you will not have to re-enter it
+\n• provide, improve, test, and monitor the effectiveness of our App
+\n• develop and test new features
+\n• diagnose or fix technology problems"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

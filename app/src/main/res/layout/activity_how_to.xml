@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="androiddoctors.mobileantitheft.HowToActivity"
+    android:padding="5dp"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:text="Remotely performing your tasks is a 2-step process. After following these 2 simple steps you will be able to understand the working of the App."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+            <TextView
+                android:text="Step 1"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+            <TextView
+                android:text="Here, we will use the command to ring your phone alarm. Write following command in SMS. Normal Mode#PIN  "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+
+            <TextView
+                android:text="Here the PIN is your PIN which you entered while registering. In my case PIN is 1234. So, I will write:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+
+            <ImageView
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/write_command"
+                android:layout_width="300dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:text="\nStep 2"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+            <TextView
+                android:text="Send this SMS to your phone number which you entered during registration. In my case Phone no is 0300123467."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/send_command"/>
+            <TextView
+                android:text="Congratulations! Your phone will start ringing. You are now ready to use the App."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
