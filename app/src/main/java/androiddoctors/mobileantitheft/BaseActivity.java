@@ -20,7 +20,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
@@ -44,6 +43,8 @@ import activities.ProfileActivity;
 import databases.SQLiteHandler;
 
 import static com.android.volley.Request.Method.POST;
+import static helpers.Constants.BASE_URL;
+import static utilities.utils.showToast;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -57,13 +58,13 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view) ;
+        drawerLayout =  findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view) ;
 
         View headerView = navigationView.getHeaderView(0);
 
-        name = (TextView) headerView.findViewById(R.id.nameHeader);
-        email = (TextView) headerView.findViewById(R.id.emailHeader);
+        name =  headerView.findViewById(R.id.nameHeader);
+        email = headerView.findViewById(R.id.emailHeader);
 
         SQLiteHandler sqLiteHandler = new SQLiteHandler(BaseActivity.this);
         Cursor cursor = sqLiteHandler.getUserData();
@@ -120,23 +121,23 @@ public class BaseActivity extends AppCompatActivity {
                                 progressDialog.setCancelable(false);
                                 progressDialog.show();
 
-                                String url = "http://mobileantitheft.uphero.com/problemReport.php";
+                                String url = BASE_URL+"/problemReport.php";
                                 StringRequest request = new StringRequest(POST, url, new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
                                         if (response.equals("success")) {
                                             progressDialog.cancel();
-                                            Toast.makeText(BaseActivity.this, "Your problem has been reported successfully", Toast.LENGTH_LONG).show();
+                                          showToast(BaseActivity.this, "Your problem has been reported successfully");
                                         } else {
                                             progressDialog.cancel();
-                                            Toast.makeText(BaseActivity.this, "Failed to report the problem", Toast.LENGTH_LONG).show();
+                                            showToast(BaseActivity.this, "Failed to report the problem");
                                         }
                                     }
                                 }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
                                         progressDialog.cancel();
-                                        Toast.makeText(BaseActivity.this, "Failed to report the problem", Toast.LENGTH_LONG).show();
+                                       showToast(BaseActivity.this, "Failed to report the problem");
                                     }
                                 }) {
                                     @Override
@@ -181,7 +182,7 @@ public class BaseActivity extends AppCompatActivity {
                 }
                 if (item.getItemId()==R.id.visitWebsite){
                     if (checkInternetConnectivity()){
-                        Uri uri = Uri.parse("http://mobileantitheft.uphero.com/");
+                        Uri uri = Uri.parse(BASE_URL);
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         finish();
@@ -190,7 +191,7 @@ public class BaseActivity extends AppCompatActivity {
                 }
                 if (item.getItemId()==R.id.faq){
                     if (checkInternetConnectivity()){
-                        Uri uri = Uri.parse("http://mobileantitheft.uphero.com/#faq");
+                        Uri uri = Uri.parse(BASE_URL+"/#faq");
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         finish();
@@ -244,7 +245,7 @@ public class BaseActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         if (networkInfo == null){
-            Toast.makeText(BaseActivity.this, "No Internet Connection",Toast.LENGTH_SHORT).show();
+           showToast(BaseActivity.this, "No Internet Connection");
             return false;
         }
         else {

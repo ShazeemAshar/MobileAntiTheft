@@ -17,7 +17,7 @@ public class SmsSetup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms_setup);
 
-       initViews();
+        initViews();
     }
 
     private void initViews() {

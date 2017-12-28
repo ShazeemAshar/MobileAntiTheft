@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androiddoctors.mobileantitheft.R;
 import databases.SQLiteHandler;
@@ -188,7 +187,7 @@ public class PhoneNumberRegistration extends AppCompatActivity implements View.O
                 e.printStackTrace();
             }
         } else {
-            Toast.makeText(PhoneNumberRegistration.this, "Failed to select!", Toast.LENGTH_LONG).show();
+
         }
     }
 }

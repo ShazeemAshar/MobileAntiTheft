@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
-        android:text="Visit www.MobileAntiTheft.uphero.com, to perform above mentioned operations"/>
+        android:text="Visit www.MobileAntiTheft.000webhostapp.com, to perform above mentioned operations"/>
 
     <Button
         android:id="@+id/setupWebBtn"

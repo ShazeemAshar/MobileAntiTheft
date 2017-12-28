@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 public class SQLiteHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -48,7 +47,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         long result = writeableDb.update(TABLE_NAME,values,KEY_ID +"=1",null);
 
         if (result!=-1){
-            Toast.makeText(context,"Account Created Successfully",Toast.LENGTH_LONG).show();
 
         }
     }
@@ -70,7 +68,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         long result = writeableDb.update(TABLE_NAME,values,KEY_ID +"=1",null);
 
         if (result!=-1){
-            Toast.makeText(context,"PIN Registered",Toast.LENGTH_LONG).show();
 
         }
     }
@@ -83,7 +80,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
       long result = writeableDb.update(TABLE_NAME,values,KEY_ID +"=1",null);
 
         if (result!=-1){
-            Toast.makeText(context,"Phone Numbers Registered",Toast.LENGTH_LONG).show();
 
         }
     }

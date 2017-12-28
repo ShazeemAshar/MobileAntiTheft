@@ -29,7 +29,7 @@ public class AboutActivity extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(AboutActivity.this);
                 alert.setTitle("Contact us");
                 alert.setMessage("Please leave us an email at SaddaButt@gmail.com, we will get back to you as soon as possible. You can " +
-                        "visit our website MobileAntiTheft.uphero.com");
+                        "visit our website MobileAntiTheft.000webhostapp.com");
 
                 alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override

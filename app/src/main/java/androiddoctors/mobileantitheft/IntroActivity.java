@@ -44,7 +44,7 @@ public class IntroActivity extends MaterialIntroActivity {
                         .buttonsColor(R.color.colorAccent)
                         .image(R.drawable.delete_icon)
                         .title("Remotely Delete Data")
-                        .description("Remotely delete all your messages, logs, contacts and wipe phone memory by sending a command via SMS using any other phone")
+                        .description("Remotely delete all your logs, contacts and wipe phone memory by sending a command via SMS using any other phone")
                         .build());
 
         addSlide(new SlideFragmentBuilder()
