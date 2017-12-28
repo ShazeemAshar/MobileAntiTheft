@@ -56,10 +56,9 @@ public class Commands extends BaseActivity {
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-            startActivity(new Intent(this, HomeActivity.class));
         }
-
+        else {
+            super.onBackPressed();
+        }
     }
 }

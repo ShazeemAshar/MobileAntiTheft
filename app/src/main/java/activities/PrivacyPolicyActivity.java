@@ -31,8 +31,6 @@ public class PrivacyPolicyActivity extends BaseActivity {
         }
         else {
             super.onBackPressed();
-            startActivity(new Intent(this,HomeActivity.class));
         }
-
     }
 }

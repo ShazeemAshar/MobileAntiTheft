@@ -186,8 +186,6 @@ public class PhoneNumberRegistration extends AppCompatActivity implements View.O
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
-
         }
     }
 }

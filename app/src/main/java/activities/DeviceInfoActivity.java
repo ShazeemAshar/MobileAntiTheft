@@ -89,11 +89,8 @@ public class DeviceInfoActivity extends BaseActivity {
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
+        } else {
             super.onBackPressed();
-            startActivity(new Intent(this,HomeActivity.class));
         }
-
     }
 }

@@ -3,7 +3,6 @@ package activities;
 import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -21,8 +20,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -44,6 +41,7 @@ import static databases.SQLiteHandler.KEY_EC3;
 import static databases.SQLiteHandler.KEY_PHONE;
 import static databases.SQLiteHandler.KEY_PIN;
 import static helpers.Constants.BASE_URL;
+import static utilities.utils.showToast;
 
 public class WebRegistration extends AppCompatActivity {
 
@@ -137,11 +135,11 @@ public class WebRegistration extends AppCompatActivity {
                         progressDialog.cancel();
                         Email.setError("Email already registered!");
                         Email.setText(null);
-                        Toast.makeText(WebRegistration.this, "Email already registered!", Toast.LENGTH_LONG).show();
+                        showToast(WebRegistration.this, "Email already registered!");
                         break;
                     default:
                         progressDialog.cancel();
-                        Toast.makeText(WebRegistration.this, "Registration Failed", Toast.LENGTH_LONG).show();
+                        showToast(WebRegistration.this, "Registration Failed");
                         break;
                 }
             }
@@ -149,7 +147,7 @@ public class WebRegistration extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.cancel();
-                Toast.makeText(WebRegistration.this, error.toString(), Toast.LENGTH_LONG).show();
+                showToast(WebRegistration.this, error.toString());
             }
         }
         ) {
@@ -239,14 +237,14 @@ public class WebRegistration extends AppCompatActivity {
         } else if (!Password.getText().toString().equals(ConfirmPassword.getText().toString())) {
             Password.setText(null);
             ConfirmPassword.setText(null);
-            Toast.makeText(WebRegistration.this, "Passwords do not match", Toast.LENGTH_LONG).show();
+           showToast(WebRegistration.this, "Passwords do not match");
         } else if (!isValidEmail(Email.getText().toString())) {
             Email.requestFocus();
             Email.setError("Invalid Email!");
             Email.setText(null);
         } else {
             if (!checkInternetConnectivity()) {
-                Toast.makeText(this, "Please check that you are connected to the Internet and try again", Toast.LENGTH_SHORT).show();
+                showToast(this, "Please check that you are connected to the Internet and try again");
             } else {
                 signUp();
             }

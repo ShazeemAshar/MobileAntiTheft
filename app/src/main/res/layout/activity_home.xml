@@ -11,28 +11,7 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="2">
 
-        <com.github.lzyzsd.circleprogress.ArcProgress
-            android:id="@+id/arc_progress"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            custom:arc_bottom_text="Security Level"
-            custom:arc_bottom_text_size="15dp"
-            custom:arc_finished_color="@color/white"
-            custom:arc_stroke_width="7dp"
-            custom:arc_text_color="@color/white"
-            custom:arc_unfinished_color="@color/colorPrimary"
-            custom:arc_max="100"
-            android:textStyle="bold" />
-
-    </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

@@ -29,7 +29,6 @@ public class HowToActivity extends BaseActivity {
         }
         else {
             super.onBackPressed();
-            startActivity(new Intent(this,HomeActivity.class));
         }
 
     }

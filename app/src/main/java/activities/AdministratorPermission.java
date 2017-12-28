@@ -31,7 +31,7 @@ public class AdministratorPermission extends AppCompatActivity {
         setTitle("Activate Admin");
         sessionManager = new SessionManager(this);
 
-        settingsBtn = (Button) findViewById(R.id.settingsBtn);
+        settingsBtn = findViewById(R.id.settingsBtn);
 
         settingsBtn.setOnClickListener(new View.OnClickListener() {
             @Override

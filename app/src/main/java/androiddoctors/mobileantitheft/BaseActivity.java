@@ -78,27 +78,27 @@ public class BaseActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if (item.getItemId()==R.id.home){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     startActivity(new Intent(BaseActivity.this, HomeActivity.class));
-                    finish();
                 }
                 if (item.getItemId()==R.id.accountInfo){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     startActivity(new Intent(BaseActivity.this, ProfileActivity.class));
-                    finish();
                 }
                 if (item.getItemId()==R.id.deviceInfo){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     Intent intent2 = new Intent(BaseActivity.this, DeviceInfoActivity.class);
                     startActivity(intent2);
-                    finish();
                 }
                 if (item.getItemId()==R.id.commands){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     Intent intent = new Intent(BaseActivity.this, Commands.class);
                     startActivity(intent);
-                    finish();
                 }
                 if (item.getItemId()==R.id.howToUse){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     Intent intent1 = new Intent(BaseActivity.this, HowToActivity.class);
                     startActivity(intent1);
-                    finish();
                 }
                 if (item.getItemId()==R.id.report){
                     if (checkInternetConnectivity()) {
@@ -171,30 +171,30 @@ public class BaseActivity extends AppCompatActivity {
                     }
                 }
                 if (item.getItemId()==R.id.privacyPolicy){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     Intent intent4 = new Intent(BaseActivity.this, PrivacyPolicyActivity.class);
                     startActivity(intent4);
-                    finish();
                 }
                 if (item.getItemId()==R.id.about){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     Intent intent3 = new Intent(BaseActivity.this, AboutActivity.class);
                     startActivity(intent3);
-                    finish();
                 }
                 if (item.getItemId()==R.id.visitWebsite){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     if (checkInternetConnectivity()){
                         Uri uri = Uri.parse(BASE_URL);
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
-                        finish();
                     }
 
                 }
                 if (item.getItemId()==R.id.faq){
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     if (checkInternetConnectivity()){
                         Uri uri = Uri.parse(BASE_URL+"/#faq");
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
-                        finish();
                     }
 
                 }

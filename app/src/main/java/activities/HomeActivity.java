@@ -31,8 +31,6 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
-import com.github.lzyzsd.circleprogress.ArcProgress;
-
 import java.io.IOException;
 
 import androiddoctors.mobileantitheft.BaseActivity;
@@ -44,10 +42,8 @@ public class HomeActivity extends BaseActivity {
 
 
     SwitchCompat antiTheftControl,iconSwitch,simChangeSwitch,simRemovalSwitch,notificationsSwitch;
-    static ArcProgress arcProgress;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    static int progress = 0;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +52,11 @@ public class HomeActivity extends BaseActivity {
         View contentView = inflater.inflate(R.layout.activity_home, null, false);
         drawerLayout.addView(contentView, 0);
 
-        arcProgress = (ArcProgress) findViewById(R.id.arc_progress);
-        antiTheftControl = (SwitchCompat) findViewById(R.id.antiTheftControl);
-        iconSwitch = (SwitchCompat) findViewById(R.id.iconSwitch);
-        simChangeSwitch = (SwitchCompat) findViewById(R.id.simChangeSwitch);
-        simRemovalSwitch = (SwitchCompat) findViewById(R.id.simRemovalSwitch);
-        notificationsSwitch = (SwitchCompat) findViewById(R.id.notificationSwitch);
+        antiTheftControl =  findViewById(R.id.antiTheftControl);
+        iconSwitch = findViewById(R.id.iconSwitch);
+        simChangeSwitch =  findViewById(R.id.simChangeSwitch);
+        simRemovalSwitch =  findViewById(R.id.simRemovalSwitch);
+        notificationsSwitch = findViewById(R.id.notificationSwitch);
 
         sharedPreferences = getSharedPreferences(PREFERENCES, MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -81,8 +76,6 @@ public class HomeActivity extends BaseActivity {
 
         if (sharedPreferences.getBoolean("AntiTheftControl", false)) {
             antiTheftControl.setChecked(true);
-            progress += 20;
-            arcProgress.setProgress(progress);
         }
 
         if (sharedPreferences.getBoolean("IconSwitch", false)) {
@@ -91,14 +84,10 @@ public class HomeActivity extends BaseActivity {
 
         if (sharedPreferences.getBoolean("simChangeSwitch", false)) {
             simChangeSwitch.setChecked(true);
-            progress += 20;
-            arcProgress.setProgress(progress);
         }
 
         if (sharedPreferences.getBoolean("simRemovalSwitch", false)) {
             simRemovalSwitch.setChecked(true);
-            progress += 20;
-            arcProgress.setProgress(progress);
         }
 
         antiTheftControl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -108,9 +97,6 @@ public class HomeActivity extends BaseActivity {
                     editor.putBoolean("AntiTheftControl", true);
                     editor.apply();
                     Toast.makeText(HomeActivity.this, "Anti Theft Enabled", Toast.LENGTH_SHORT).show();
-                    progress += 20;
-                    arcProgress.setProgress(progress);
-
                 } else {
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
@@ -124,16 +110,12 @@ public class HomeActivity extends BaseActivity {
                             editor.putBoolean("AntiTheftControl", false);
                             editor.apply();
                             Toast.makeText(HomeActivity.this, "Anti Theft Disabled", Toast.LENGTH_SHORT).show();
-                            progress -= 20;
-                            arcProgress.setProgress(progress);
                         }
                     });
                     alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             antiTheftControl.setChecked(true);
-                            progress -= 20;
-                            arcProgress.setProgress(progress);
                         }
                     });
                     alert.setCancelable(false);
@@ -184,14 +166,10 @@ public class HomeActivity extends BaseActivity {
                 if (isChecked){
                     editor.putBoolean("simChangeSwitch", true);
                     editor.apply();
-                    progress += 20;
-                    arcProgress.setProgress(progress);
                     Toast.makeText(HomeActivity.this, "Emergency Contacts will be informed on SIM change vis SMS", Toast.LENGTH_SHORT).show();
                 }else {
                     editor.putBoolean("simChangeSwitch", false);
                     editor.apply();
-                    progress -= 20;
-                    arcProgress.setProgress(progress);
                 }
 
             }
@@ -204,13 +182,10 @@ public class HomeActivity extends BaseActivity {
                     editor.putBoolean("simRemovalSwitch", true);
                     editor.apply();
                     Toast.makeText(HomeActivity.this, "Phone will be locked on SIM change/removal", Toast.LENGTH_SHORT).show();
-                    progress += 20;
-                    arcProgress.setProgress(progress);
+
                 }else {
                     editor.putBoolean("simRemovalSwitch", false);
                     editor.apply();
-                    progress -= 20;
-                    arcProgress.setProgress(progress);
                 }
             }
         });
@@ -262,8 +237,6 @@ public class HomeActivity extends BaseActivity {
         }
         else {
             if (sharedPreferences.getBoolean("AntiTheftControl",false)){
-            progress+=20;
-            arcProgress.setProgress(progress);
             }
         }
 
@@ -325,8 +298,6 @@ public class HomeActivity extends BaseActivity {
         }
         else {
             if (sharedPreferences.getBoolean("AntiTheftControl",false)){
-                progress+=20;
-                arcProgress.setProgress(progress);
             }
 
         }
@@ -380,7 +351,6 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        progress = 0;
 
         if (sharedPreferences.getBoolean("IconSwitch",false)){
             PackageManager p = getPackageManager();
@@ -398,11 +368,5 @@ public class HomeActivity extends BaseActivity {
         else {
             super.onBackPressed();
         }
-    }
-
-    private void refreshSecurityLevel(){
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
     }
 }
