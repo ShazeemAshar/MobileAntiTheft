@@ -1,57 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="16dp"
+    android:paddingBottom="16dp"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
     tools:context="activities.HomeActivity"
-    android:orientation="vertical"
-    android:gravity="center">
+    tools:layout_editor_absoluteY="81dp">
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/antiTheftControl"
-            android:text="Anti Theft Protection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"/>
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/antiTheftControl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Anti Theft Protection"
+        custom:layout_constraintBottom_toTopOf="@+id/iconSwitch"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toTopOf="parent"
+        custom:layout_constraintVertical_chainStyle="packed" />
 
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/iconSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Hide App Icon" />
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/iconSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hide App Icon"
+        custom:layout_constraintBottom_toTopOf="@+id/simRemovalSwitch"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/antiTheftControl" />
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/simRemovalSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Lock Phone On Sim Change/Removal" />
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/simRemovalSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lock Phone On Sim Change/Removal"
+        custom:layout_constraintBottom_toTopOf="@+id/simChangeSwitch"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/iconSwitch" />
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/simChangeSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Inform Emergency Contacts On Sim Change" />
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/simChangeSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Inform Emergency Contacts On Sim Change"
+        custom:layout_constraintBottom_toTopOf="@+id/notificationSwitch"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/simRemovalSwitch" />
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/notificationSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Disable App Notifications" />
-    </LinearLayout>
-</LinearLayout>
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/notificationSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Disable App Notifications"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/simChangeSwitch" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,48 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activities.LoginActivity"
-    android:orientation="vertical"
     android:background="@color/colorPrimary"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context="activities.LoginActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <ImageView
-        android:layout_width="84dp"
-        android:layout_height="84dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="134dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Enter PIN to unlock the App"
         android:textColor="@color/white"
-        android:text="Enter PIN to unlock the App"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <com.andrognito.pinlockview.IndicatorDots
 
         android:id="@+id/indicator_dots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.andrognito.pinlockview.PinLockView
 
         android:id="@+id/pin_lock_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/indicator_dots"
-        android:layout_marginTop="16dp"
+        android:layout_width="384dp"
+        android:layout_height="388dp"
+        android:layout_marginTop="8dp"
         app:keypadButtonSize="72dp"
+        app:keypadDeleteButtonDrawable="@drawable/ic_backspace_black_24dp"
         app:keypadShowDeleteButton="true"
         app:keypadTextColor="@color/white"
         app:keypadTextSize="18dp"
-        app:keypadDeleteButtonDrawable="@drawable/ic_backspace_black_24dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/indicator_dots" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

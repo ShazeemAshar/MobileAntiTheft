@@ -1,61 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:gravity="center"
-    android:weightSum="5"
-    tools:context="activities.AboutActivity"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    tools:context="activities.AboutActivity">
 
     <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Mobile Anti Theft"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        app:layout_constraintBottom_toTopOf="@+id/appVersion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="142dp" />
 
     <TextView
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:text="Version 1.0"
+        android:id="@+id/appVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
         android:paddingBottom="20dp"
-        android:textColor="@color/white"/>
+        android:text="Version 1.0"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/appLogo"
+        app:layout_constraintStart_toStartOf="@+id/appTitle"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle"
+        tools:layout_conversion_absoluteHeight="45dp"
+        tools:layout_conversion_absoluteWidth="90dp"
+        android:layout_marginLeft="26dp" />
 
     <ImageView
-        android:layout_weight="3"
+        android:id="@+id/appLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="288dp"
+        android:paddingTop="10dp"
         android:src="@drawable/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:paddingTop="10dp"/>
+        app:layout_constraintBottom_toTopOf="@+id/appCopyrights"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appVersion"
+        tools:layout_conversion_absoluteHeight="239dp"
+        tools:layout_conversion_absoluteWidth="384dp" />
 
 
     <TextView
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:id="@+id/appCopyrights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="29dp"
         android:text="\nCopyright © 2016-2017 Android Doctors."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
-    <TextView
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:text="All Rights Reserved."
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/appRights"
+        app:layout_constraintEnd_toEndOf="@+id/appLogo"
+        app:layout_constraintTop_toBottomOf="@+id/appLogo"
+        tools:layout_conversion_absoluteHeight="46dp"
+        tools:layout_conversion_absoluteWidth="325dp"
+        android:layout_marginRight="29dp" />
+
+    <TextView
+        android:id="@+id/appRights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:text="All Rights Reserved."
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/contactUs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCopyrights"
+        tools:layout_conversion_absoluteHeight="25dp"
+        tools:layout_conversion_absoluteWidth="159dp" />
 
     <TextView
         android:id="@+id/contactUs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Contact Us"
         android:autoLink="web"
         android:linksClickable="true"
-        android:textColor="@color/white"/>
+        android:text="Contact Us"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appRights"
+        tools:layout_conversion_absoluteHeight="19dp"
+        tools:layout_conversion_absoluteWidth="69dp" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

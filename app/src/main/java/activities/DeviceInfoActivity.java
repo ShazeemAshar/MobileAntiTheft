@@ -18,7 +18,7 @@ import androiddoctors.mobileantitheft.R;
 
 public class DeviceInfoActivity extends BaseActivity {
 
-    TextView imei, manufacturer, model, apiLevel, androidVersion, simSerial, simNo, simOperator, osName, imsi;
+    TextView imei, manufacturer, model, apiLevel, androidVersion, simSerial, simOperator, osName, imsi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,6 @@ public class DeviceInfoActivity extends BaseActivity {
         apiLevel = findViewById(R.id.api);
         androidVersion = findViewById(R.id.osVersion);
         simSerial = findViewById(R.id.simSerial);
-        simNo = findViewById(R.id.simNo);
         simOperator = findViewById(R.id.simOperator);
         osName = findViewById(R.id.osName);
         imsi = findViewById(R.id.imsi);
@@ -60,7 +59,6 @@ public class DeviceInfoActivity extends BaseActivity {
         }
 
         String SimSerialNumber = manager.getSimSerialNumber();
-        String SimNumber = manager.getLine1Number();
         String IMEI = manager.getDeviceId();
         String IMSI = manager.getSubscriberId();
         String Operator = manager.getNetworkOperatorName();
@@ -68,7 +66,6 @@ public class DeviceInfoActivity extends BaseActivity {
         if (IMSI == null){
             IMSI = "No SIM Found";
             SimSerialNumber = "No SIM Found";
-            SimNumber = "No SIM Found";
             Operator = "No SIM Found";
         }
 
@@ -79,7 +76,6 @@ public class DeviceInfoActivity extends BaseActivity {
         apiLevel.append(String.valueOf(android.os.Build.VERSION.SDK_INT));
         androidVersion.append(Build.VERSION.RELEASE);
         simSerial.append(SimSerialNumber);
-        simNo.append(SimNumber);
         simOperator.append(Operator);
         imsi.append(IMSI);
     }
