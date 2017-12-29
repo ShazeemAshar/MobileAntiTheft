@@ -33,7 +33,6 @@
         android:layout_weight="0.4"
         style="@style/Base.Widget.AppCompat.Button.Colored"
         android:text="Start Setup"
-        android:textColor="@color/white"
         android:textStyle="bold" />
 
 </LinearLayout>

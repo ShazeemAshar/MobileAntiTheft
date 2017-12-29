@@ -1,63 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:gravity="center"
-    tools:context="activities.LoginActivity"
-    tools:layout_editor_absoluteY="25dp">
+    tools:context="activities.PinRegistration"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="134dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Enter PIN to unlock the App"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
 
-    <com.andrognito.pinlockview.IndicatorDots
+            <TextView
+                android:id="@+id/screen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="4"
+                android:background="@color/colorPrimary"
+                android:textSize="32dp"
+                android:hint="Enter 4 Digit PIN" />
+        </TableRow>
 
-        android:id="@+id/indicator_dots"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="3">
 
-    <com.andrognito.pinlockview.PinLockView
+            <Button
+                android:id="@+id/num1"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/one"
+                android:textSize="32dp"/>
 
-        android:id="@+id/pin_lock_view"
-        android:layout_width="384dp"
-        android:layout_height="388dp"
-        android:layout_marginTop="8dp"
-        app:keypadButtonSize="72dp"
-        app:keypadDeleteButtonDrawable="@drawable/ic_backspace_black_24dp"
-        app:keypadShowDeleteButton="true"
-        app:keypadTextColor="@color/white"
-        app:keypadTextSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/indicator_dots" />
+            <Button
+                android:id="@+id/num2"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/two"
+                android:textSize="32dp"/>
+
+            <Button
+                android:id="@+id/num3"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/three"
+                android:textSize="32dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/num4"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/four"
+                android:textSize="32dp" />
+
+            <Button
+                android:id="@+id/num5"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/five"
+                android:textSize="32dp" />
+
+            <Button
+                android:id="@+id/num6"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/six"
+                android:textSize="32dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/num7"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/seven"
+                android:textSize="32dp" />
+
+            <Button
+                android:id="@+id/num8"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/eight"
+                android:textSize="32dp" />
+
+            <Button
+                android:id="@+id/num9"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/nine"
+                android:textSize="32dp" />
+
+        </TableRow>
 
 
-</android.support.constraint.ConstraintLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/emptyBtn"
+                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:clickable="false"
+                android:text=""
+                android:textSize="40dp" />
+
+            <Button
+                android:id="@+id/num0"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:text="@string/zero"
+                android:textSize="32dp" />
+
+            <Button
+                android:id="@+id/deleteBtn"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:onClick="onDelete"
+                android:text="C"
+                android:textSize="32dp"/>
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

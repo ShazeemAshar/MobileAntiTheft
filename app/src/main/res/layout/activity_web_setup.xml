@@ -39,7 +39,6 @@
         android:layout_height="0dp"
         android:layout_weight=".8"
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_margin="5dp"/>
 

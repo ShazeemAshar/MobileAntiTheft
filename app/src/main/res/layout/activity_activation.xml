@@ -34,7 +34,6 @@
         android:paddingRight="30dp"
         android:paddingTop="0dp"
         android:text="@string/activation_description"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -43,7 +43,6 @@
         android:layout_marginStart="8dp"
         android:padding="10dp"
         android:text="Go To Settings"
-        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
