@@ -35,7 +35,6 @@ import java.util.Map;
 
 import activities.AboutActivity;
 import activities.Commands;
-import activities.DeviceInfoActivity;
 import activities.HomeActivity;
 import activities.HowToActivity;
 import activities.PrivacyPolicyActivity;
@@ -84,11 +83,6 @@ public class BaseActivity extends AppCompatActivity {
                 if (item.getItemId()==R.id.accountInfo){
                     drawerLayout.closeDrawer(GravityCompat.START);
                     startActivity(new Intent(BaseActivity.this, ProfileActivity.class));
-                }
-                if (item.getItemId()==R.id.deviceInfo){
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    Intent intent2 = new Intent(BaseActivity.this, DeviceInfoActivity.class);
-                    startActivity(intent2);
                 }
                 if (item.getItemId()==R.id.commands){
                     drawerLayout.closeDrawer(GravityCompat.START);

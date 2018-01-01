@@ -11,10 +11,7 @@
                 <item android:id="@+id/accountInfo"
                     android:icon="@drawable/ic_account_circle_black_24dp"
                     android:title="Profile" />
-                <item
-                    android:id="@+id/deviceInfo"
-                    android:icon="@drawable/ic_phone_android_black_24dp"
-                    android:title="Device Info" />
+
                 <item
                     android:id="@+id/commands"
                     android:icon="@drawable/ic_speaker_notes_black_24dp"

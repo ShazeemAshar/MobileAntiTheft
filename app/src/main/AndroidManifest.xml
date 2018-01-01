@@ -35,10 +35,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" >
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name="activities.HomeActivity"
@@ -110,11 +107,6 @@
             android:screenOrientation="portrait" >
 
         </activity>
-        <activity
-            android:name="activities.DeviceInfoActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" >
-        </activity>
 
         <service android:name="services.CameraService" />
 
@@ -153,7 +145,10 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Intro">
-
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
         <activity
             android:name="activities.ProfileActivity"
