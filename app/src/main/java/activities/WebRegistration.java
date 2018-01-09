@@ -20,6 +20,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toolbar;
+
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -63,7 +65,6 @@ public class WebRegistration extends AppCompatActivity {
     }
 
     private void initViews() {
-        setTitle("Web Registration");
         Name = findViewById(R.id.fullName);
         Email = findViewById(R.id.email);
         Password = findViewById(R.id.password);

@@ -1,39 +1,29 @@
-package activities;
+package fragments;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androiddoctors.mobileantitheft.BaseActivity;
 import androiddoctors.mobileantitheft.R;
 
-public class Commands extends BaseActivity {
+public class Commands extends Fragment{
 
-    ListView commandsList;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_commands,container,false);
 
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentView = inflater.inflate(R.layout.activity_commands, null, false);
-        drawerLayout.addView(contentView, 0);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Commands");
 
-        initViews();
-
-
-    }
-
-    private void initViews() {
-        setTitle("Commands");
-
-        commandsList = findViewById(R.id.commandsList);
-
+        ListView commandsList = view.findViewById(R.id.commandsList);
         String[] commands = {
                 "\nDelete Logs#PIN" + "\nThis command will delete all the messages\n",
                 "\nDelete Contacts#PIN" + "\nThis command will delete all the contacts\n",
@@ -46,19 +36,15 @@ public class Commands extends BaseActivity {
                         "memory, and Locks the phone\n",
                 "\nFactory Reset#PIN" + "\nThis command will Factory Reset your Mobile\n"};
 
-        ArrayAdapter adapter = new ArrayAdapter<>(Commands.this, android.R.layout.simple_list_item_1, commands);
+        ArrayAdapter adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, commands);
 
         commandsList.setAdapter(adapter);
+        return view;
     }
 
     @Override
-    public void onBackPressed() {
-
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
-            super.onBackPressed();
-        }
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
+
 }

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="fragments.Home"
+    android:padding="5dp"
+    android:gravity="center"
+    android:background="@android:color/white" >
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/tvControls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mobile Anti Theft Controls"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvControls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvControls">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/antiTheftControl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Anti Theft Protection"
+                        app:layout_constraintBottom_toTopOf="@+id/iconSwitch"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/iconSwitch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Hide App Icon"
+                        app:layout_constraintBottom_toTopOf="@+id/simRemovalSwitch"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/antiTheftControl" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/simRemovalSwitch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Lock Phone On Sim Change/Removal"
+                        app:layout_constraintBottom_toTopOf="@+id/simChangeSwitch"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iconSwitch" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/simChangeSwitch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Inform Emergency Contacts On Sim Change"
+                        app:layout_constraintBottom_toTopOf="@+id/notificationSwitch"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/simRemovalSwitch" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/notificationSwitch"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Disable App Notifications"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/simChangeSwitch" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvDeviceInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Device Info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvControls" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvDeviceInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintTop_toBottomOf="@id/tvDeviceInfo">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/imei"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="IMEI : " />
+
+                    <TextView
+                        android:id="@+id/model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Model : "
+                        app:layout_constraintTop_toBottomOf="@id/imei" />
+
+
+                    <TextView
+                        android:id="@+id/manufacturer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Manufacturer : "
+                        app:layout_constraintTop_toBottomOf="@id/model" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvNetworkInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Network Info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvDeviceInfo" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvNetworkInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintTop_toBottomOf="@id/tvNetworkInfo">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/imsi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="IMSI : "
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/simOperator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sim Operator : "
+                        app:layout_constraintTop_toBottomOf="@id/imsi" />
+
+                    <TextView
+                        android:id="@+id/simSerial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sim Serial No : "
+                        app:layout_constraintTop_toBottomOf="@id/simOperator" />
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvOSInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="OS Info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvNetworkInfo" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cvOSInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="3dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintTop_toBottomOf="@id/tvOSInfo">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/osName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OS Name : "
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/api"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="API Level : "
+                        app:layout_constraintTop_toBottomOf="@id/osName" />
+
+                    <TextView
+                        android:id="@+id/osVersion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Version No : "
+                        app:layout_constraintTop_toBottomOf="@id/api" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

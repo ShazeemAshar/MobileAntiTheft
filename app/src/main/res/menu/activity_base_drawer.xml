@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
+    <item android:title="General">
+        <menu>
+            <item
+                android:id="@+id/home"
+                android:icon="@drawable/ic_home_black_24dp"
+                android:title="Home" />
+            <item
+                android:id="@+id/accountInfo"
+                android:icon="@drawable/ic_account_circle_black_24dp"
+                android:title="Profile" />
 
-        <item android:title="General">
-            <menu>
-                <item
-                    android:id="@+id/home"
-                    android:icon="@drawable/ic_home_black_24dp"
-                    android:title="Home" />
-                <item android:id="@+id/accountInfo"
-                    android:icon="@drawable/ic_account_circle_black_24dp"
-                    android:title="Profile" />
+            <item
+                android:id="@+id/commands"
+                android:icon="@drawable/ic_speaker_notes_black_24dp"
+                android:title="Commands" />
 
-                <item
-                    android:id="@+id/commands"
-                    android:icon="@drawable/ic_speaker_notes_black_24dp"
-                    android:title="Commands" />
-
-            </menu>
-        </item>
+        </menu>
+    </item>
 
     <item android:title="Help">
         <menu>
@@ -53,5 +55,4 @@
                 android:title="About" />
         </menu>
     </item>
-
 </menu>

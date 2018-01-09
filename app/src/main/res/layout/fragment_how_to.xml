@@ -6,9 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="activities.HowToActivity"
+    tools:context="fragments.HowTo"
     android:padding="5dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@android:color/white"  >
 
     <ScrollView
         android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androiddoctors.mobileantitheft.BaseActivity;
 import androiddoctors.mobileantitheft.R;
 import databases.SQLiteHandler;
 
@@ -22,8 +23,6 @@ public class PhoneNumberRegistration extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_number_registration);
-        setTitle("Phone No Registration");
-
         initViews();
 
     }
@@ -52,78 +51,26 @@ public class PhoneNumberRegistration extends AppCompatActivity implements View.O
                 if (phone.getText().toString().equals("")) {
                     phone.requestFocus();
                     phone.setError("Phone No is required!");
-                } else if (phone.getText().length() < 11 || phone.getText().length() > 13) {
-                    phone.requestFocus();
-                    phone.setError("Invalid Phone Number");
-                } else if (phone.getText().toString().startsWith("032") && phone.getText().length() > 11 || phone.getText().toString().startsWith("030") && phone.getText().length() > 11 || phone.getText().toString().startsWith("034") && phone.getText().length() > 11 || phone.getText().toString().startsWith("031") && phone.getText().length() > 11 || phone.getText().toString().startsWith("033") && phone.getText().length() > 11 || phone.getText().toString().startsWith("+923") && phone.getText().length() < 13) {
-                    phone.requestFocus();
-                    phone.setError("Invalid Phone Number");
-                } else if (!phone.getText().toString().startsWith("032") && !phone.getText().toString().startsWith("030") && !phone.getText().toString().startsWith("034") && !phone.getText().toString().startsWith("031") && !phone.getText().toString().startsWith("033") && !phone.getText().toString().startsWith("+923")) {
-                    phone.requestFocus();
-                    phone.setError("Invalid Phone Number");
-                } else if (ec1.getText().toString().equals("")) {
+                }  else if (ec1.getText().toString().equals("")) {
                     ec1.requestFocus();
                     ec1.setError("Emergency Contact is required!");
-                } else if (ec1.getText().length() < 11 || ec1.getText().length() > 13) {
-                    ec1.requestFocus();
-                    ec1.setError("Invalid Phone Number");
-                } else if (ec1.getText().toString().startsWith("032") && ec1.getText().length() > 11 || ec1.getText().toString().startsWith("030") && ec1.getText().length() > 11 || ec1.getText().toString().startsWith("034") && ec1.getText().length() > 11 || ec1.getText().toString().startsWith("031") && ec1.getText().length() > 11 || ec1.getText().toString().startsWith("033") && ec1.getText().length() > 11 || ec1.getText().toString().startsWith("+923") && ec1.getText().length() < 13) {
-                    ec1.requestFocus();
-                    ec1.setError("Invalid Phone Number");
-                } else if (!ec1.getText().toString().startsWith("032") && !ec1.getText().toString().startsWith("030") && !ec1.getText().toString().startsWith("034") && !ec1.getText().toString().startsWith("031") && !ec1.getText().toString().startsWith("033") && !ec1.getText().toString().startsWith("+923")) {
-                    ec1.requestFocus();
-                    ec1.setError("Invalid Phone Number");
                 } else if (ec2.getText().toString().equals("")) {
                     ec2.requestFocus();
                     ec2.setError("Emergency Contact is required!");
-                } else if (ec2.getText().length() < 11 || ec2.getText().length() > 13) {
-                    ec2.requestFocus();
-                    ec2.setError("Invalid Phone Number");
-                } else if (ec2.getText().toString().startsWith("032") && ec2.getText().length() > 11 || ec2.getText().toString().startsWith("030") && ec2.getText().length() > 11 || ec2.getText().toString().startsWith("034") && ec2.getText().length() > 11 || ec2.getText().toString().startsWith("031") && ec2.getText().length() > 11 || ec2.getText().toString().startsWith("033") && ec2.getText().length() > 11 || ec2.getText().toString().startsWith("+923") && ec2.getText().length() < 13) {
-                    ec2.requestFocus();
-                    ec2.setError("Invalid Phone Number");
-                } else if (!ec2.getText().toString().startsWith("032") && !ec2.getText().toString().startsWith("030") && !ec2.getText().toString().startsWith("034") && !ec2.getText().toString().startsWith("031") && !ec2.getText().toString().startsWith("033") && !ec2.getText().toString().startsWith("+923")) {
-                    ec2.requestFocus();
-                    ec2.setError("Invalid Phone Number");
                 } else if (ec3.getText().toString().equals("")) {
                     ec3.requestFocus();
                     ec3.setError("Emergency Contact is required!");
-                } else if (ec3.getText().length() < 11 || ec3.getText().length() > 13) {
-                    ec3.requestFocus();
-                    ec3.setError("Invalid Phone Number");
-                } else if (ec3.getText().toString().startsWith("032") && ec3.getText().length() > 11 || ec3.getText().toString().startsWith("030") && ec3.getText().length() > 11 || ec3.getText().toString().startsWith("034") && ec3.getText().length() > 11 || ec3.getText().toString().startsWith("031") && ec3.getText().length() > 11 || ec3.getText().toString().startsWith("033") && ec3.getText().length() > 11 || ec3.getText().toString().startsWith("+923") && ec3.getText().length() < 13) {
-                    ec3.requestFocus();
-                    ec3.setError("Invalid Phone Number");
-                } else if (!ec3.getText().toString().startsWith("032") && !ec3.getText().toString().startsWith("030") && !ec3.getText().toString().startsWith("034") && !ec3.getText().toString().startsWith("031") && !ec3.getText().toString().startsWith("033") && !ec3.getText().toString().startsWith("+923")) {
-                    ec3.requestFocus();
-                    ec3.setError("Invalid Phone Number");
                 } else {
-                    String temp = phone.getText().toString();
-                    temp = temp.replaceAll("\\s", "");
-                    phone.setText(temp.replaceAll("^0+(?!$)", "+92"));
-
-                    temp = ec1.getText().toString();
-                    temp = temp.replaceAll("\\s", "");
-                    ec1.setText(temp.replaceAll("^0+(?!$)", "+92"));
-
-                    temp = ec2.getText().toString();
-                    temp = temp.replaceAll("\\s", "");
-                    ec2.setText(temp.replaceAll("^0+(?!$)", "+92"));
-
-                    temp = ec3.getText().toString();
-                    temp = temp.replaceAll("\\s", "");
-                    ec3.setText(temp.replaceAll("^0+(?!$)", "+92"));
-
 
                     sqLiteHandler.insertPhoneNum(phone.getText().toString());
                     sqLiteHandler.insertEmergencyContacts(ec1.getText().toString(), ec2.getText().toString(), ec3.getText().toString());
 
                     if (getIntent().getExtras() != null && getIntent().getStringExtra("Flag").equals("ChangePhoneNo")) {
-                        Intent intent = new Intent(PhoneNumberRegistration.this, HomeActivity.class);
+                        Intent intent = new Intent(PhoneNumberRegistration.this, BaseActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
-                        Intent intent = new Intent(PhoneNumberRegistration.this, PinSetup.class);
+                        Intent intent = new Intent(PhoneNumberRegistration.this, PinRegistration.class);
                         startActivity(intent);
                         finish();
                     }

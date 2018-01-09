@@ -34,15 +34,7 @@
             android:name="activities.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar" >
-
-        </activity>
-        <activity
-            android:name="activities.HomeActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:theme="@style/NoActionBar" />
 
         <receiver
             android:name="receivers.SmsReader"
@@ -51,12 +43,6 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name="activities.Commands"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-
         <receiver
             android:name="receivers.AdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
@@ -75,38 +61,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name="activities.SmsSetup"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="activities.PinSetup"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="activities.PinRegistration"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name="activities.WebSetup"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="activities.WebRegistration"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" >
-
-        </activity>
-        <activity
-            android:name="activities.AdministratorPermission"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
             android:name="activities.PhoneNumberRegistration"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait" />
 
         <service android:name="services.CameraService" />
 
@@ -129,17 +95,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
-        <activity
-            android:name="activities.HowToActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
 
-        </activity>
-        <activity
-            android:name="activities.PrivacyPolicyActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity android:name=".BaseActivity" />
         <activity
             android:name=".IntroActivity"
             android:configChanges="orientation"
@@ -150,10 +106,11 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="activities.ProfileActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:name=".BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/NoActionBar">
 
         </activity>
     </application>

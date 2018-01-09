@@ -1,53 +1,47 @@
-package activities;
+package fragments;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androiddoctors.mobileantitheft.BaseActivity;
+import activities.PhoneNumberRegistration;
+import activities.PinRegistration;
 import androiddoctors.mobileantitheft.R;
 import databases.SQLiteHandler;
 
-public class ProfileActivity extends BaseActivity {
+public class Profile extends Fragment {
 
     TextView name,email,password,pin,phone,emergencyContact1,emergencyContact2,emergencyContact3;
     ImageView editIcon;
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View contentView = inflater.inflate(R.layout.activity_profile, null, false);
-        drawerLayout.addView(contentView, 0);
-
-        initViews();
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
 
-    }
-
-    private void initViews() {
-        setTitle("Profile");
-
-        name =  findViewById(R.id.name);
-        email =  findViewById(R.id.email);
-        password =  findViewById(R.id.password);
-        pin =  findViewById(R.id.pin);
-        phone =  findViewById(R.id.phone);
-        emergencyContact1 = findViewById(R.id.emergencyContact1);
-        emergencyContact2 = findViewById(R.id.emergencyContact2);
-        emergencyContact3 = findViewById(R.id.emergencyContact3);
-        editIcon =  findViewById(R.id.edit);
+        name =  view.findViewById(R.id.name);
+        email =  view.findViewById(R.id.email);
+        password =  view.findViewById(R.id.password);
+        pin =  view.findViewById(R.id.pin);
+        phone =  view.findViewById(R.id.phone);
+        emergencyContact1 = view.findViewById(R.id.emergencyContact1);
+        emergencyContact2 = view.findViewById(R.id.emergencyContact2);
+        emergencyContact3 = view.findViewById(R.id.emergencyContact3);
+        editIcon =  view.findViewById(R.id.edit);
 
 
-        SQLiteHandler sqLiteHandler = new SQLiteHandler(ProfileActivity.this);
+        SQLiteHandler sqLiteHandler = new SQLiteHandler(getActivity());
         Cursor cursor = sqLiteHandler.getUserData();
         cursor.moveToFirst();
 
@@ -66,22 +60,20 @@ public class ProfileActivity extends BaseActivity {
             public void onClick(View v) {
                 CharSequence options[] = new CharSequence[]{"Change PIN", "Change Phone No"};
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case 0:
-                                Intent intent5 = new Intent(ProfileActivity.this, PinRegistration.class);
+                                Intent intent5 = new Intent(getActivity(), PinRegistration.class);
                                 intent5.putExtra("Flag", "ChangePIN");
                                 startActivity(intent5);
-                                finish();
                                 break;
                             case 1:
-                                Intent intent6 = new Intent(ProfileActivity.this, PhoneNumberRegistration.class);
+                                Intent intent6 = new Intent(getActivity(), PhoneNumberRegistration.class);
                                 intent6.putExtra("Flag", "ChangePhoneNo");
                                 startActivity(intent6);
-                                finish();
                                 break;
                         }
                     }
@@ -89,16 +81,14 @@ public class ProfileActivity extends BaseActivity {
                 builder.show();
             }
         });
+        return view;
+
     }
 
     @Override
-    public void onBackPressed() {
-
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
-            super.onBackPressed();
-        }
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Profile");
     }
+
 }

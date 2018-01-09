@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androiddoctors.mobileantitheft.BaseActivity;
 import androiddoctors.mobileantitheft.R;
 import databases.SQLiteHandler;
 
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (currentScreen.length() == 4) {
             preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
             if (preferences.getString("PIN", "").equals(screen.getText().toString())) {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, BaseActivity.class);
                 startActivity(intent);
                 finish();
             } else {

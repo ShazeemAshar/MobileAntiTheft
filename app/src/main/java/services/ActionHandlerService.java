@@ -26,7 +26,6 @@ import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.IBinder;
 import android.provider.ContactsContract;
-import android.provider.Telephony;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
@@ -53,7 +52,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import activities.AdministratorPermission;
+import androiddoctors.mobileantitheft.BaseActivity;
 import databases.SQLiteHandler;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -441,7 +440,7 @@ public class ActionHandlerService extends Service {
 
         }
         else {
-            Intent intent = new Intent(ActionHandlerService.this, AdministratorPermission.class);
+            Intent intent = new Intent(ActionHandlerService.this, BaseActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }

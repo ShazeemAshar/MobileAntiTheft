@@ -24,7 +24,6 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:maxLength="4"
-                android:background="@color/colorPrimary"
                 android:textSize="32dp"
                 android:hint="Enter 4 Digit PIN" />
         </TableRow>

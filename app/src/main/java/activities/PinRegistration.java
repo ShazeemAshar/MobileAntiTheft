@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androiddoctors.mobileantitheft.BaseActivity;
 import androiddoctors.mobileantitheft.R;
 import databases.SQLiteHandler;
 
@@ -74,7 +75,7 @@ public class PinRegistration extends AppCompatActivity implements View.OnClickLi
                     editor.apply();
 
                     if (getIntent().getExtras() != null && getIntent().getStringExtra("Flag").equals("ChangePIN")){
-                        Intent intent = new Intent(PinRegistration.this, HomeActivity.class);
+                        Intent intent = new Intent(PinRegistration.this, BaseActivity.class);
                         startActivity(intent);
                         finish();
                     }

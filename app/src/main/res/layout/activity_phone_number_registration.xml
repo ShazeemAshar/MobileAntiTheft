@@ -4,11 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp"
     tools:context="activities.PhoneNumberRegistration">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme"
+            app:title="Phone No Registration"/>
+
+    </android.support.design.widget.AppBarLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +32,6 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.8"
-            android:background="@color/colorPrimary"
             android:hint="Enter Your Phone No       "
             android:inputType="number"
             android:maxLength="13"
@@ -45,7 +56,6 @@
             android:layout_weight="0.8"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:background="@color/colorPrimary"
             android:hint="Emergency Contact No 1"
             android:inputType="number"
             android:maxLength="13"
@@ -70,7 +80,6 @@
             android:layout_weight="0.8"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:background="@color/colorPrimary"
             android:hint="Emergency Contact No 2"
             android:inputType="number"
             android:maxLength="13"
@@ -96,7 +105,6 @@
             android:layout_weight="0.8"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:background="@color/colorPrimary"
             android:hint="Emergency Contact No 3"
             android:inputType="number"
             android:maxLength="13"
@@ -115,10 +123,11 @@
         android:id="@+id/registerPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:background="@color/colorPrimary"
         android:text="Register"
         android:textStyle="bold"
-        android:padding="18dp"/>
+        android:padding="18dp"
+        android:textColor="@android:color/white"/>
 
 
 </LinearLayout>
