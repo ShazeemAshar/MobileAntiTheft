@@ -1,133 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     tools:context="activities.PhoneNumberRegistration">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme"
+        app:title="Phone No Registration"
+        app:titleTextColor="@android:color/white" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/AppTheme"
-            app:title="Phone No Registration"/>
 
-    </android.support.design.widget.AppBarLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/phoneText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorLightGray"
+        android:hint="Enter Your Phone No       "
+        android:inputType="number"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@id/ecText1"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/phoneInsertBtn" />
 
-        <EditText
-            android:id="@+id/phoneText"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.8"
-            android:hint="Enter Your Phone No       "
-            android:inputType="number"
-            android:maxLength="13"
-            android:paddingLeft="10dp" />
-
-        <ImageButton
-            android:id="@+id/phoneInsertBtn"
-            android:layout_weight="0.2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageButton
+        android:id="@+id/phoneInsertBtn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/colorLightGray"
+        android:padding="15dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toBottomOf="@id/phoneText"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/phoneText" />
 
-        <EditText
-            android:id="@+id/ecText1"
-            android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:hint="Emergency Contact No 1"
-            android:inputType="number"
-            android:maxLength="13"
-            android:paddingLeft="10dp" />
 
-        <ImageButton
-            android:id="@+id/ec1InsertBtn"
-            android:layout_weight="0.2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/ecText1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorLightGray"
+        android:hint="Emergency Contact No 1"
+        android:inputType="number"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@id/ecText2"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/ec1InsertBtn" />
 
-        <EditText
-            android:id="@+id/ecText2"
-            android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:hint="Emergency Contact No 2"
-            android:inputType="number"
-            android:maxLength="13"
-            android:paddingLeft="10dp" />
-
-        <ImageButton
-            android:id="@+id/ec2InsertBtn"
-            android:layout_weight="0.2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageButton
+        android:id="@+id/ec1InsertBtn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/colorLightGray"
+        android:padding="15dp"
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toBottomOf="@id/ecText1"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/ecText1" />
 
-        <EditText
-            android:id="@+id/ecText3"
-            android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:hint="Emergency Contact No 3"
-            android:inputType="number"
-            android:maxLength="13"
-            android:paddingLeft="10dp" />
 
-        <ImageButton
-            android:id="@+id/ec3InsertBtn"
-            android:layout_weight="0.2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/ecText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorLightGray"
+        android:hint="Emergency Contact No 2"
+        android:inputType="number"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/ec2InsertBtn"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/ec2InsertBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightGray"
+        android:padding="15dp"
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toBottomOf="@id/ecText2"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/ecText2" />
+
+
+    <EditText
+        android:id="@+id/ecText3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorLightGray"
+        android:hint="Emergency Contact No 3"
+        android:inputType="number"
+        android:padding="15dp"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/ec3InsertBtn"
+        app:layout_constraintTop_toBottomOf="@id/ecText2" />
+
+    <ImageButton
+        android:id="@+id/ec3InsertBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightGray"
+        android:padding="15dp"
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toBottomOf="@id/ecText3"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/ecText3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
 
     <Button
         android:id="@+id/registerPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="Register"
-        android:textStyle="bold"
         android:padding="18dp"
-        android:textColor="@android:color/white"/>
+        android:text="Register"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

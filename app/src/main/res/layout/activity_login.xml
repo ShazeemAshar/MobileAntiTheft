@@ -1,188 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="activities.PinRegistration"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:layout_marginTop="50dp">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <com.kevalpatel.passcodeview.PinView
+        android:id="@+id/pin_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:dividerColor="@color/colorPrimaryDark"
+        app:fingerprintTextColor="@color/colorAccent"
+        app:fingerprintTextSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:titleTextColor="@android:color/white"
+        app:pin_titleTextColor="@color/colorPrimary"
+        app:fingerprintEnable="false"
+        app:giveTactileFeedback="false"/>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10">
-
-            <TextView
-                android:id="@+id/screen"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:maxLines="1"
-                android:maxLength="4"
-                android:textSize="32dp"
-                android:hint="Enter 4 Digit PIN" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/num1"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/one"
-                android:textSize="32dp"/>
-
-            <Button
-                android:id="@+id/num2"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/two"
-                android:textSize="32dp"/>
-
-            <Button
-                android:id="@+id/num3"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/three"
-                android:textSize="32dp"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/num4"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/four"
-                android:textSize="32dp" />
-
-            <Button
-                android:id="@+id/num5"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/five"
-                android:textSize="32dp" />
-
-            <Button
-                android:id="@+id/num6"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/six"
-                android:textSize="32dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/num7"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/seven"
-                android:textSize="32dp" />
-
-            <Button
-                android:id="@+id/num8"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/eight"
-                android:textSize="32dp" />
-
-            <Button
-                android:id="@+id/num9"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/nine"
-                android:textSize="32dp" />
-
-        </TableRow>
-
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/emptyBtn"
-                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:clickable="false"
-                android:text=""
-                android:textSize="40dp" />
-
-            <Button
-                android:id="@+id/num0"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:text="@string/zero"
-                android:textSize="32dp" />
-
-            <Button
-                android:id="@+id/deleteBtn"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:onClick="onDelete"
-                android:text="C"
-                android:textSize="32dp"/>
-        </TableRow>
-
-    </TableLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -24,8 +24,10 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
                 android:textSize="32dp"
-                android:hint="Enter 4 Digit PIN" />
+                android:hint="Enter 4 Digit PIN"
+                android:textColorHint="@android:color/white"/>
         </TableRow>
 
         <TableRow

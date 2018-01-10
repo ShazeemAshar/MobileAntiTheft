@@ -1,92 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activities.WebRegistration"
-    android:orientation="vertical">
+    tools:context="activities.WebRegistration">
 
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme"
-            app:title="Web Registration"/>
+            app:title="Web Registration" />
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:background="@color/colorLightGray"
+        android:padding="5dp"
+        android:layout_marginBottom="8dp">
+
         <EditText
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQR‌​STUVWXYZ "
             android:id="@+id/fullName"
-            android:inputType="textCapWords"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQR‌​STUVWXYZ "
             android:hint="Name"
+            android:inputType="textCapWords"
+android:padding="10dp"
             android:textSize="15sp"
-            android:padding="15dp"/>
+            android:background="@android:color/transparent"/>
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
+        android:id="@+id/textInputLayout2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-       >
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        android:background="@color/colorLightGray"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        android:layout_marginBottom="8dp">
+
         <EditText
             android:id="@+id/email"
-            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
             android:textSize="15sp"
-            android:padding="15dp"
-            />
+            android:background="@android:color/transparent"/>
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/textInputLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        android:background="@color/colorLightGray"
+        android:layout_marginBottom="8dp">
+
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
+            android:padding="10dp"
             android:textSize="15sp"
-            android:padding="15dp"/>
+            android:background="@android:color/transparent"/>
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
+        android:id="@+id/textInputLayout4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-      >
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/signup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toRightOf="@id/guidelineLeft"
+        app:layout_constraintRight_toLeftOf="@id/guidelineRight"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        android:background="@color/colorLightGray"
+        android:layout_marginBottom="8dp">
+
         <EditText
             android:id="@+id/confirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:inputType="textPassword"
+            android:padding="10dp"
             android:textSize="15sp"
-            android:padding="15dp"/>
+            android:background="@android:color/transparent"/>
     </android.support.design.widget.TextInputLayout>
 
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
     <Button
-        android:onClick="validateCredentials"
         android:id="@+id/signup"
-        android:text="Create Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:onClick="validateCredentials"
         android:padding="20dp"
+        android:text="Create Account"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"/>
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

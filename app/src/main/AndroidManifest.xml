@@ -34,7 +34,9 @@
             android:name="activities.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/NoActionBar">
+
+        </activity>
 
         <receiver
             android:name="receivers.SmsReader"
@@ -68,11 +70,15 @@
         <activity
             android:name="activities.WebRegistration"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name="activities.PhoneNumberRegistration"
             android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
 
         <service android:name="services.CameraService" />
 

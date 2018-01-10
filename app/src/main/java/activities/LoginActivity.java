@@ -1,78 +1,87 @@
 package activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kevalpatel.passcodeview.PinView;
+import com.kevalpatel.passcodeview.indicators.CircleIndicator;
+import com.kevalpatel.passcodeview.interfaces.AuthenticationListener;
+import com.kevalpatel.passcodeview.keys.RoundKey;
+
 import androiddoctors.mobileantitheft.BaseActivity;
 import androiddoctors.mobileantitheft.R;
-import databases.SQLiteHandler;
 
 import static helpers.Constants.PREFERENCES;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity {
 
-
-    TextView screen;
     SharedPreferences preferences;
 
+    private PinView mPinView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initViews();
+
+        initPinLock();
+        setListeners();
+
     }
 
-    private void initViews() {
-        screen = findViewById(R.id.screen);
-
-        int idList[] = {R.id.num0, R.id.num1, R.id.num2, R.id.num3, R.id.num4, R.id.num5, R.id.num6, R.id.num7, R.id.num8,
-                R.id.num9};
-
-        for (int id : idList) {
-            View v = findViewById(id);
-            v.setOnClickListener(this);
-        }
-    }
-
-
-    @Override
-    public void onClick(View v) {
-
-        String currentScreen = screen.getText().toString();
-        currentScreen += ((Button) v).getText().toString();
-        screen.setText(currentScreen);
-
-        if (currentScreen.length() == 4) {
-            preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-            if (preferences.getString("PIN", "").equals(screen.getText().toString())) {
-                Intent intent = new Intent(LoginActivity.this, BaseActivity.class);
-                startActivity(intent);
+    private void setListeners() {
+        mPinView.setAuthenticationListener(new AuthenticationListener() {
+            @Override
+            public void onAuthenticationSuccessful() {
+                startActivity(new Intent(LoginActivity.this, BaseActivity.class));
                 finish();
-            } else {
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
                 Toast.makeText(LoginActivity.this, "Invalid PIN", Toast.LENGTH_SHORT).show();
             }
-        }
+        });
 
     }
 
-    public void onDelete(View v) {
+    private void initPinLock() {
 
-        String updateScreen = screen.getText().toString();
-        if (updateScreen.equals("Error")) {
-            screen.setText("");
-        } else if (!updateScreen.equals("")) {
-            updateScreen = updateScreen.substring(0, updateScreen.length() - 1);
-            screen.setText(String.valueOf(updateScreen));
-        }
+        mPinView = findViewById(R.id.pin_view);
+        mPinView.setCorrectPin(getCorrectPin());
+
+        mPinView.setKey(new RoundKey.Builder(mPinView)
+                .setKeyPadding(R.dimen.key_padding)
+                .setKeyStrokeColorResource(R.color.colorPrimary)
+                .setKeyStrokeWidth(R.dimen.key_stroke_width)
+                .setKeyTextColorResource(R.color.colorPrimary)
+                .setKeyTextSize(R.dimen.key_text_size)
+                .build());
+
+        mPinView.setIndicator(new CircleIndicator.Builder(mPinView)
+                .setIndicatorRadius(R.dimen.indicator_radius)
+                .setIndicatorFilledColorResource(R.color.colorPrimary)
+                .setIndicatorStrokeColorResource(R.color.colorPrimary)
+                .setIndicatorStrokeWidth(R.dimen.indicator_stroke_width)
+                .build());
+
     }
 
+    private int[] getCorrectPin() {
+        preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
+        String tempPin = preferences.getString("PIN", "");
+
+        int[] pin = new int[tempPin.length()];
+
+        for (int i = 0; i < tempPin.length(); i++) {
+            pin[i] = Character.digit(tempPin.charAt(i), 10);
+        }
+        return pin;
+
+    }
 }

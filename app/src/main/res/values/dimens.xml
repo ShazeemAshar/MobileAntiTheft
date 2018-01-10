@@ -7,4 +7,15 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">150dp</dimen>
+
+
+    <dimen name="profile_image_dimen">140dp</dimen>
+    <dimen name="finger_print_text_size">16sp</dimen>
+    <dimen name="key_text_size">24sp</dimen>
+    <dimen name="key_stroke_width">1dp</dimen>
+    <dimen name="indicator_stroke_width">1dp</dimen>
+    <dimen name="indicator_radius">5dp</dimen>
+    <dimen name="key_padding">8dp</dimen>
+
+    <dimen name="pattern_cell_radius">5dp</dimen>
 </resources>
