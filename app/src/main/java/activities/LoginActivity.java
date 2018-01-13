@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onAuthenticationFailed() {
-                Toast.makeText(LoginActivity.this, "Invalid PIN", Toast.LENGTH_SHORT).show();
             }
         });
 

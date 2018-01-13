@@ -1,4 +1,5 @@
 package activities;
+import android.Manifest;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -41,7 +42,7 @@ public class PhoneNumberRegistration extends AppCompatActivity implements View.O
             v.setOnClickListener(this);
         }
 
-        registerPhoneNum = (Button) findViewById(R.id.registerPhone);
+        registerPhoneNum = findViewById(R.id.registerPhone);
 
         sqLiteHandler = new SQLiteHandler(this);
 

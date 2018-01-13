@@ -59,7 +59,6 @@ public class WebRegistration extends AppCompatActivity {
         setContentView(R.layout.activity_web_registration);
 
         requestPermissions();
-
         initViews();
 
     }
