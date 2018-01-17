@@ -3,56 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="General">
-        <menu>
-            <item
-                android:id="@+id/home"
-                android:icon="@drawable/ic_home_black_24dp"
-                android:title="Home" />
-            <item
-                android:id="@+id/accountInfo"
-                android:icon="@drawable/ic_account_circle_black_24dp"
-                android:title="Profile" />
+    <group android:checkableBehavior="single">
+        <item android:title="General">
+            <menu>
+                <item
+                    android:id="@+id/home"
+                    android:icon="@drawable/ic_home_black_24dp"
+                    android:title="Home" />
+                <item
+                    android:id="@+id/accountInfo"
+                    android:icon="@drawable/ic_account_circle_black_24dp"
+                    android:title="Profile" />
 
-            <item
-                android:id="@+id/commands"
-                android:icon="@drawable/ic_speaker_notes_black_24dp"
-                android:title="Commands" />
+                <item
+                    android:id="@+id/commands"
+                    android:icon="@drawable/ic_speaker_notes_black_24dp"
+                    android:title="Commands" />
 
-        </menu>
-    </item>
+            </menu>
+        </item>
 
-    <item android:title="Help">
-        <menu>
-            <item
-                android:id="@+id/howToUse"
-                android:icon="@drawable/ic_help_outline_black_24dp"
-                android:title="How to use" />
-            <item
-                android:id="@+id/faq"
-                android:icon="@drawable/ic_live_help_black_24dp"
-                android:title="FAQs" />
-            <item
-                android:id="@+id/report"
-                android:icon="@drawable/ic_report_black_24dp"
-                android:title="Report a problem" />
-        </menu>
-    </item>
+        <item android:title="Help">
+            <menu>
+                <item
+                    android:id="@+id/howToUse"
+                    android:icon="@drawable/ic_help_outline_black_24dp"
+                    android:title="How to use" />
+                <item
+                    android:id="@+id/faq"
+                    android:icon="@drawable/ic_live_help_black_24dp"
+                    android:title="FAQs" />
+                <item
+                    android:id="@+id/report"
+                    android:icon="@drawable/ic_report_black_24dp"
+                    android:title="Report a problem" />
+            </menu>
+        </item>
 
-    <item android:title="About">
-        <menu>
-            <item
-                android:id="@+id/privacyPolicy"
-                android:icon="@drawable/ic_security_black_24dp"
-                android:title="Privacy policy" />
-            <item
-                android:id="@+id/visitWebsite"
-                android:icon="@drawable/ic_web_black_24dp"
-                android:title="Visit Website" />
-            <item
-                android:id="@+id/about"
-                android:icon="@drawable/ic_android_black_24dp"
-                android:title="About" />
-        </menu>
-    </item>
+        <item android:title="About">
+            <menu>
+                <item
+                    android:id="@+id/privacyPolicy"
+                    android:icon="@drawable/ic_security_black_24dp"
+                    android:title="Privacy policy" />
+                <item
+                    android:id="@+id/visitWebsite"
+                    android:icon="@drawable/ic_web_black_24dp"
+                    android:title="Visit Website" />
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/ic_android_black_24dp"
+                    android:title="About" />
+            </menu>
+        </item>
+    </group>
 </menu>

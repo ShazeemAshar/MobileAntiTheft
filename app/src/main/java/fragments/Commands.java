@@ -26,26 +26,31 @@ public class Commands extends Fragment{
         RecyclerView rvCommands = view.findViewById(R.id.rvCommands);
         rvCommands.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        String[] commands = {"Delete Logs#PIN",
-                "Delete Contacts#PIN",
-                "Wipe Memory#PIN",
-                "Normal Mode#PIN",
-                "Backup Contacts#PIN",
+        String[] commands = {
                 "Lock Phone#PIN",
+                "Wipe Memory#PIN",
+                "Delete Contacts#PIN",
+                "Factory Reset#PIN",
+                "Delete Logs#PIN",
+                "Backup Contacts#PIN",
+                "Normal Mode#PIN",
                 "Find Mobile#PIN",
                 "Super User#PIN",
-                "Factory Reset#PIN"};
 
-        String[] descriptions = {"This command will delete all the Logs",
-                "This command will delete all the contacts",
-                "This command will delete all the gallery images and videos",
-                "This command will switch the phone from Silent to Sound Mode",
-                "This command will upload your contacts to your web account",
+        };
+
+        String[] descriptions = {
                 "This command will lock the phone",
-                "This command will set last active location of your Mobile on your web account",
-                "This is a super user command which causes the mobile to delete all the messages,logs,contacts," +
-                        "memory, and Locks the phone",
-                "This command will Factory Reset your Mobile"
+                "This command will wipe phone storage",
+                "This command will delete all the contacts",
+                "This command will Factory Reset your Mobile",
+                "This command will delete all the Calls & Messages Logs",
+                "This command will upload your contacts to your web account",
+                "This command will switch the phone from Silent to Sound Mode",
+                "This command will show the last active location of your Mobile on your web account",
+                "This is a super user command which causes the mobile to delete all the Logs, Contacts, " +
+                        "Memory, and Locks the phone"
+
         };
 
         CommandsAdapter adapter = new CommandsAdapter(getActivity(),commands,descriptions);
