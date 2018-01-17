@@ -9,7 +9,7 @@
     tools:context="fragments.Home"
     android:padding="5dp"
     android:gravity="center"
-    android:background="@android:color/white" >
+    android:background="#EEEEEE" >
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -23,8 +23,8 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:paddingTop="8dp">
 
             <TextView
@@ -41,7 +41,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="3dp"
-                app:cardPreventCornerOverlap="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvControls">
@@ -60,13 +59,15 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="packed" />
+                        app:layout_constraintVertical_chainStyle="packed"
+                        android:textColor="@color/colorPrimary"/>
 
                     <android.support.v7.widget.SwitchCompat
                         android:id="@+id/iconSwitch"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Hide App Icon"
+                        android:textColor="@color/colorPrimary"
                         app:layout_constraintBottom_toTopOf="@+id/simRemovalSwitch"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +78,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Lock Phone On Sim Change/Removal"
+                        android:textColor="@color/colorPrimary"
                         app:layout_constraintBottom_toTopOf="@+id/simChangeSwitch"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +92,7 @@
                         app:layout_constraintBottom_toTopOf="@+id/notificationSwitch"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="@color/colorPrimary"
                         app:layout_constraintTop_toBottomOf="@+id/simRemovalSwitch" />
 
                     <android.support.v7.widget.SwitchCompat
@@ -97,6 +100,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Disable App Notifications"
+                        android:textColor="@color/colorPrimary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +123,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="3dp"
-                app:cardPreventCornerOverlap="false"
                 app:layout_constraintTop_toBottomOf="@id/tvDeviceInfo">
 
                 <android.support.constraint.ConstraintLayout
@@ -131,14 +134,16 @@
                         android:id="@+id/imei"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="IMEI : " />
+                        android:text="IMEI : "
+                        android:textColor="@color/colorPrimary"/>
 
                     <TextView
                         android:id="@+id/model"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Model : "
-                        app:layout_constraintTop_toBottomOf="@id/imei" />
+                        app:layout_constraintTop_toBottomOf="@id/imei"
+                        android:textColor="@color/colorPrimary"/>
 
 
                     <TextView
@@ -146,7 +151,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Manufacturer : "
-                        app:layout_constraintTop_toBottomOf="@id/model" />
+                        app:layout_constraintTop_toBottomOf="@id/model"
+                        android:textColor="@color/colorPrimary"/>
 
                 </android.support.constraint.ConstraintLayout>
 
@@ -167,7 +173,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="3dp"
-                app:cardPreventCornerOverlap="false"
                 app:layout_constraintTop_toBottomOf="@id/tvNetworkInfo">
 
                 <android.support.constraint.ConstraintLayout
@@ -180,21 +185,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="IMSI : "
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/colorPrimary"/>
 
                     <TextView
                         android:id="@+id/simOperator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sim Operator : "
-                        app:layout_constraintTop_toBottomOf="@id/imsi" />
+                        app:layout_constraintTop_toBottomOf="@id/imsi"
+                        android:textColor="@color/colorPrimary"/>
 
                     <TextView
                         android:id="@+id/simSerial"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sim Serial No : "
-                        app:layout_constraintTop_toBottomOf="@id/simOperator" />
+                        app:layout_constraintTop_toBottomOf="@id/simOperator"
+                        android:textColor="@color/colorPrimary"/>
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.v7.widget.CardView>
@@ -214,7 +222,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="3dp"
-                app:cardPreventCornerOverlap="false"
                 app:layout_constraintTop_toBottomOf="@id/tvOSInfo">
 
                 <android.support.constraint.ConstraintLayout
@@ -227,21 +234,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="OS Name : "
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/colorPrimary"/>
 
                     <TextView
                         android:id="@+id/api"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="API Level : "
-                        app:layout_constraintTop_toBottomOf="@id/osName" />
+                        app:layout_constraintTop_toBottomOf="@id/osName"
+                        android:textColor="@color/colorPrimary"/>
 
                     <TextView
                         android:id="@+id/osVersion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Version No : "
-                        app:layout_constraintTop_toBottomOf="@id/api" />
+                        app:layout_constraintTop_toBottomOf="@id/api"
+                        android:textColor="@color/colorPrimary"/>
 
                 </android.support.constraint.ConstraintLayout>
 
