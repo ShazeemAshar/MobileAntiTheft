@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.R;
 
 public class PrivacyPolicy extends Fragment {
 

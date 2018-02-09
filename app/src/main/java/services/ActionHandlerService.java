@@ -52,7 +52,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import androiddoctors.mobileantitheft.BaseActivity;
+import pk.encodersolutions.mobileantitheft.BaseActivity;
 import databases.SQLiteHandler;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;

@@ -51,8 +51,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import androiddoctors.mobileantitheft.BaseActivity;
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.BaseActivity;
+import pk.encodersolutions.mobileantitheft.R;
 import databases.SQLiteHandler;
 import receivers.AdminReceiver;
 

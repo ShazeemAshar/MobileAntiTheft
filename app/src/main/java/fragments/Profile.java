@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import activities.PhoneNumberRegistration;
 import activities.PinRegistration;
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.R;
 import databases.SQLiteHandler;
 
 public class Profile extends Fragment {

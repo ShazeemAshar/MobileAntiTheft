@@ -1,4 +1,4 @@
-package androiddoctors.mobileantitheft;
+package pk.encodersolutions.mobileantitheft;
 
 import android.content.Intent;
 import android.os.Bundle;

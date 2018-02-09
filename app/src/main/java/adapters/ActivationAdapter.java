@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

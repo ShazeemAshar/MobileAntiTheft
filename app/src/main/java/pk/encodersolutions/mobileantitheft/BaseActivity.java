@@ -1,4 +1,4 @@
-package androiddoctors.mobileantitheft;
+package pk.encodersolutions.mobileantitheft;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -54,7 +54,7 @@ import static utilities.utils.showToast;
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView tvName,tvEmail;
+    TextView tvName, tvEmail;
     SharedPreferences sharedPreferences;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawer;
@@ -70,7 +70,7 @@ public class BaseActivity extends AppCompatActivity
 
         drawer = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
-                this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -79,7 +79,7 @@ public class BaseActivity extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
 
-        tvName =  headerView.findViewById(R.id.tvName);
+        tvName = headerView.findViewById(R.id.tvName);
         tvEmail = headerView.findViewById(R.id.tvEmail);
 
         SQLiteHandler sqLiteHandler = new SQLiteHandler(BaseActivity.this);
@@ -89,7 +89,7 @@ public class BaseActivity extends AppCompatActivity
         tvName.setText(cursor.getString(1));
         tvEmail.setText(cursor.getString(2));
 
-        getFragmentManager().beginTransaction().replace(R.id.content_base,new Home()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.content_base, new Home()).commit();
 
     }
 
@@ -106,7 +106,7 @@ public class BaseActivity extends AppCompatActivity
 
         Fragment fragment = null;
 
-        switch (id){
+        switch (id) {
             case R.id.home:
                 fragment = new Home();
                 break;
@@ -120,8 +120,8 @@ public class BaseActivity extends AppCompatActivity
                 fragment = new HowTo();
                 break;
             case R.id.faq:
-                if (checkInternetConnectivity()){
-                    Uri uri = Uri.parse(BASE_URL+"/#faq");
+                if (checkInternetConnectivity()) {
+                    Uri uri = Uri.parse(BASE_URL + "/#faq");
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                 }
@@ -133,7 +133,7 @@ public class BaseActivity extends AppCompatActivity
                 fragment = new PrivacyPolicy();
                 break;
             case R.id.visitWebsite:
-                if (checkInternetConnectivity()){
+                if (checkInternetConnectivity()) {
                     Uri uri = Uri.parse(BASE_URL);
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
@@ -144,9 +144,9 @@ public class BaseActivity extends AppCompatActivity
                 break;
 
         }
-        if (fragment!=null){
+        if (fragment != null) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.content_base,fragment);
+            transaction.replace(R.id.content_base, fragment);
             transaction.commit();
         }
 
@@ -155,20 +155,19 @@ public class BaseActivity extends AppCompatActivity
         return true;
     }
 
-    private boolean checkInternetConnectivity(){
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+    private boolean checkInternetConnectivity() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        if (networkInfo == null){
+        if (networkInfo == null) {
             showToast(BaseActivity.this, "No Internet Connection");
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
 
-    private void reportProblem(){
+    private void reportProblem() {
         if (checkInternetConnectivity()) {
 
             AlertDialog.Builder dialog = new AlertDialog.Builder(BaseActivity.this);
@@ -188,7 +187,7 @@ public class BaseActivity extends AppCompatActivity
                     progressDialog.setCancelable(false);
                     progressDialog.show();
 
-                    String url = BASE_URL+"/problemReport.php";
+                    String url = BASE_URL + "/problemReport.php";
                     StringRequest request = new StringRequest(POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -241,11 +240,11 @@ public class BaseActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-            sharedPreferences = getSharedPreferences(PREFERENCES, MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("IconSwitch",false)){
+        sharedPreferences = getSharedPreferences(PREFERENCES, MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("IconSwitch", false)) {
             PackageManager p = getPackageManager();
-            ComponentName componentName = new ComponentName(this, androiddoctors.mobileantitheft.IntroActivity.class); // activity which is first time open in manifiest file which is declare as <category android:name="android.intent.category.LAUNCHER" />
-            p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            ComponentName componentName = new ComponentName(this, pk.encodersolutions.mobileantitheft.IntroActivity.class); // activity which is first time open in manifiest file which is declare as <category android:name="android.intent.category.LAUNCHER" />
+            p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
         }
     }
 

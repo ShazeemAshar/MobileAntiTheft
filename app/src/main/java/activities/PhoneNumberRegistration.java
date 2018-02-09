@@ -1,5 +1,4 @@
 package activities;
-import android.Manifest;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -10,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androiddoctors.mobileantitheft.BaseActivity;
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.BaseActivity;
+import pk.encodersolutions.mobileantitheft.R;
 import databases.SQLiteHandler;
 
 public class PhoneNumberRegistration extends AppCompatActivity implements View.OnClickListener {

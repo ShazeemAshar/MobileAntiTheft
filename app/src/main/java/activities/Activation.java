@@ -13,8 +13,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import adapters.ActivationAdapter;
-import androiddoctors.mobileantitheft.BaseActivity;
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.BaseActivity;
+import pk.encodersolutions.mobileantitheft.R;
 import helpers.SessionManager;
 import receivers.AdminReceiver;
 

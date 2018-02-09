@@ -46,7 +46,7 @@
         android:id="@+id/appCopyrights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\nCopyright © 2018 Android Doctors."
+        android:text="\nCopyright © 2018 Encoder Solutions."
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         app:layout_constraintTop_toBottomOf="@id/appLogo"
         app:layout_constraintLeft_toLeftOf="parent"

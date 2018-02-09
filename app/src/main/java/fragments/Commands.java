@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import adapters.CommandsAdapter;
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.R;
 
 public class Commands extends Fragment{
 

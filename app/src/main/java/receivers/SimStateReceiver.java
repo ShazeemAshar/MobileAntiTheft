@@ -1,5 +1,6 @@
 package receivers;
 
+import android.annotation.SuppressLint;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -26,8 +27,7 @@ public class SimStateReceiver extends BroadcastReceiver {
         isSimAvailable();
     }
 
-    public boolean isSimAvailable() {
-        boolean isAvailable = false;
+    public void isSimAvailable() {
         TelephonyManager telMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         int simState = telMgr.getSimState();
         switch (simState) {
@@ -70,15 +70,15 @@ public class SimStateReceiver extends BroadcastReceiver {
                 Toast.makeText(context, "Unknown State", Toast.LENGTH_LONG).show();
                 break;
         }
-        return false;
     }
 
     private boolean matchIMSI (){
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREFERENCES, MODE_PRIVATE);
-        String IMSI = sharedPreferences.getString("IMSI",null);
+        String IMSI = sharedPreferences.getString("IMSI","");
         return IMSI.equals(getIMSI());
     }
 
+    @SuppressLint("MissingPermission")
     private String getIMSI(){
         TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return manager.getSubscriberId();

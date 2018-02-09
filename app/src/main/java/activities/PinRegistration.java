@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androiddoctors.mobileantitheft.BaseActivity;
-import androiddoctors.mobileantitheft.R;
+import pk.encodersolutions.mobileantitheft.BaseActivity;
+import pk.encodersolutions.mobileantitheft.R;
 import databases.SQLiteHandler;
 
 import static helpers.Constants.PREFERENCES;
