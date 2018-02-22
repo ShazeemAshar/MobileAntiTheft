@@ -61,11 +61,8 @@ import okhttp3.RequestBody;
 import receivers.AdminReceiver;
 
 import static com.android.volley.Request.Method.POST;
+import static helpers.Constants.BASE_URL;
 import static helpers.Constants.PREFERENCES;
-
-/**
- * Created by Sadda on 27-Apr-17.
- */
 
 public class ActionHandlerService extends Service {
 
@@ -132,7 +129,7 @@ public class ActionHandlerService extends Service {
 
         stopSelf();
 
-        return START_STICKY;
+        return START_NOT_STICKY;
     }
     private void informEmergencyContacts() {
 
@@ -224,7 +221,7 @@ public class ActionHandlerService extends Service {
     }
     protected void sendCoordinates(final double lat, final double lon){
 
-        String url = "http://mobileantitheft.uphero.com/locationUpload.php";
+        String url = BASE_URL+"/locationUpload.php";
         StringRequest request = new StringRequest(POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -351,7 +348,7 @@ public class ActionHandlerService extends Service {
     private void uploadContacts() {
 
         backupContacts();
-        final String url = "http://mobileantitheft.uphero.com/fileupload.php";
+        final String url = BASE_URL+"/fileupload.php";
 
         final String vfile = "contacts.vcf";
         final String storage_path = Environment.getExternalStorageDirectory().toString() + "/" + vfile;
