@@ -180,6 +180,7 @@ public class ActionHandlerService extends Service {
                 @Override
                 public void onLocationChanged(Location location) {
                     sendCoordinates(location.getLatitude(), location.getLongitude());
+                    stopSelf();
                 }
 
                 @Override
@@ -199,6 +200,7 @@ public class ActionHandlerService extends Service {
                 @Override
                 public void onLocationChanged(Location location) {
                     sendCoordinates(location.getLatitude(),location.getLongitude());
+                    stopSelf();
                 }
 
                 @Override

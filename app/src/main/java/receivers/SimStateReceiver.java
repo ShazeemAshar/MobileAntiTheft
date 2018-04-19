@@ -24,7 +24,7 @@ public class SimStateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         this.context = context;
-        isSimAvailable();
+       // isSimAvailable();
     }
 
     public void isSimAvailable() {
